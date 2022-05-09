@@ -1,0 +1,28 @@
+	% Recognition of regularities in word codes (version without recursion). 
+
+	%Goal:
+word list [aa bbb sdsd cccc aaa bbb rrr gggg] contains cooccurrence of word [Z]..
+
+	% Program:
+word list [A X B X C] contains cooccurrence of word [X]..
+word list [X B X C] contains cooccurrence of word [X]..
+word list [A X B X] contains cooccurrence of word [X]..
+word list [X B X] contains cooccurrence of word [X]..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

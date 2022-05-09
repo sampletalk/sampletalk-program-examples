@@ -1,0 +1,20 @@
+	% Testing lexicographic order for words.
+	% This program answers "Yes" or "No" after comparing words. 
+	% To understand it, conceive symbol ":-" as "if" and remember
+	% that variables (here A,B,M,N and _) may match any subwords.
+
+	% Goals (leave uncommented exactly one of them):
+[c a t a l o g u e] < [c a t e g o r y]..
+%[c a t a l o g u e] < [c a t]..		
+
+	% Program:
+letters in order: [# a b c d e f g h i j k l m n o p q r s t u v w x y z #].. 	
+[A M] < [A N] :- [M] < [N]..  
+[A _] < [B _] :- letters in order: [_ A _ B _].. 
+[A] < [A _]..
+
+
+
+
+
+

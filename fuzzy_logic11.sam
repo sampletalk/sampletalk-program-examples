@@ -1,0 +1,253 @@
+% 	Possible goals:
+%	{translation} of [round surface particles which look metallic in appearance . can be either white or orange in color .] is X..
+%	{translation} of [area of brightness on metal] is X..
+%	{translation} of [area of brightness on metal. usually has coloration associated with it.] is X..
+%	{translation} of [area of brightness on metal. usually has coloration ( orange - yellow ) assotiated with it.] is X..
+%	{translation} of [m1 metal corrosion. if or sf attached to edges of m1 lines] is X..
+%	{translation} of [scratch which smears m1 lines] is X..
+%	{translation} of [fm causing disturbance in 2 or 3 m1 lines] is X..
+%	{translation} of [areas where 4 or more m1 lines are shorted together] is X..
+%	{translation} of [residual metal on m1 lines which appear whitish] is X..
+%	{translation} of [residual metal under m1 lines which appear shiny or whitish] is X..
+%	{translation} of [any non-metallic fm setting on top of m1 lines] is X..
+	{translation} of [bumps are evenly distributed along m1 lines and bumps are usually whitish or yellowish in color] is X..
+%	{translation} of [m1 lines are not affected] is X..
+%	{translation} of [small masks and clusters distributed in smear of scratch pattern] is X..
+%	{translation} of [clusters of small imbedded fm material usually distributed in smear of scratch pattern] is X..
+%	{translation} of [sometimes the lines can be slightly distorted] is X..
+%	{translation} of [small dark depression or dark line on m1 line] is X..
+%	{translation} of [small dark depression or dark line on m1 lines] is X..
+%	{translation} of [any scratch under m1 lines] is X..
+%	{translation} of [any scratch on m1 lines] is X..
+%	{translation} of [large red spot. particles lie on m1 lines .] is X..
+%	{translation} of [defect is red . particles lie on m1 lines.] is X..
+%	{translation} of [defect is red. large particles touch m1 lines.] is X..
+%	{translation} of [defect is large region . red particles touch m1 lines .] is X..
+%	{translation} of [very red spot] is X..
+%	{translation} of [sss distinctive stains ddd pattern ggg] is X..
+%	{translation} of [sss mostly on pattern ggg] is X..
+%	{translation} of [mostly on pattern solid aaa saturation bbb very asdasd ggg] is X..
+%	{translation} of [defect is darker than material] is X..
+%	{translation} of [defect is brighter than material] is X..
+%	{translation} of [defect is somewhat brighter than material] is X..
+% 	{translation} of [center is brighter than material] is X ..
+%	{translation} of [boundary is somewhat brighter than material] is X..				% not?!
+%	{translation} of [center is more-or-less brighter than material] is X..
+%	{translation} of [defect is black] is X..
+%	{translation} of [defect is somewhat reddish] is X..
+%	{translation} of [defect is very bright] is X..
+%	{translation} of [defect is brighter than material. center is somewhat darker than material and gray] is X..
+%	{translation} of [defect is somewhat reddish and center is somewhat brighter than material] is X..
+%	{translation} of [defect is reddish and center is somewhat brighter than material. boundary is substantially darker than material] is X..
+%	{translation} of [defect is very scattered . center is blurred and boundary is darker than material .] is X..
+
+objects: 			[] [defect][material][area][surrounding][underside][edge][pattern][bridge][shortage][cluster][body]
+					[center][boundary][fm-material][open][m1-line][scratch][residual-metal][stain][depression][area] []..
+object comparisons:	[] [is darker than][is brighter than][is lighter than] []..
+object features: 		[] [bright][dark][saturated][solid][black][gray][white][yellow][green][turquoise][blue][purple][red][reddish]
+					[circular][elongated][oblong][small][large][rough][continuous][scattered][blurred]
+					[discontinuous][shorted][round][stright][bended][visible][scattered] []..
+object relations:		[] [covers][touches][intersects with][is near][is over][is under][lies along][has] []..
+fuzzy feature qualifiers:	[] [not][very][somewhat][more-or-less] []..
+object quantifiers:		[] [few][many] []..
+object-object specifiers:	[] [of][in][from] []..					% e.g. center of stain
+object-feature specifiers:	[] [which is] []..					% e.g. shortage which is bright
+object-relation specifiers:	[] [which] []..					% e.g. bridge which touches boundary
+ortogonalities:		[] [dark-bright][black-white][small-large][elongated-circular][solid-scattered][darker-brighter][few-many][not-very]
+					[over-under][stright-bended][]..
+colors: 			[] [black][gray][white][yellow][green][turquoise][blue][purple][red][reddish] []..
+
+{translation} of [A. B.] is X and Y :- 	{translation} of [A] is X,,	{translation} of [B] is Y..
+{translation} of [A and B] is X and Y :- 	{translation} of [A] is X,,	{translation} of [B] is Y..
+{translation} of [A or B] is X or Y :- 	{translation} of [A] is X,,	{translation} of [B] is Y..
+{translation} of [A is F B than C] is F(Y) :- 
+	objects: _[A]_ ,, fuzzy feature qualifiers: _[F]_ ,, object comparisons: _[is B than]_ ,, 	objects: _[C]_ ,, {translation} of [A is B than C] is Y..
+{translation} of [X is F P] is F(Y) :- objects: _[X]_ ,, fuzzy feature qualifiers: _[F]_ ,, object features: _[P]_ ,,{translation} of [X is P] is Y..
+{translation} of [defect is P] is P :- object features: _[P]_..
+{translation} of [A] is X and Y :- {corollary} of _[1 A 1]_ is X ,, {corollary} of _[1 A 1]_ is Y ,, ~~[X is the same as Y]  ..
+{translation} of [A] is X :- {corollary} of _[1 A 1]_ is X ..
+{translation} of [A] is [].. 
+
+[X is the same as X] ..
+word [As] is plural :-	~~word [A] contain spaces..		% impresize definition of plural words
+word [_ _] contain spaces..
+
+
+
+{corollary} of [][_ defect is brighter than material _][_ very bright _][_ shine _][_ shiny _][]
+							 	is brighter-than-material..
+{corollary} of [][_ equal to material _][_ same color as material _][]		is equal-to-material..	
+{corollary} of [][_ defect is darker than material _][_ very dark _][]		is darker-than-material..
+{corollary} of [][_ brighter _][_ shine _][_ very bright _][]			is has-areas-brighter-than-material..
+{corollary} of [][_ darker _][_ dark _][]					is has-areas-darker-than-material..
+{corollary} of [][_ same color as material _][_ equal to material _][]		is has-areas-equal-to-material..	
+{corollary} of [][_ darker than next and brighter than material _][]		is darker-than-next-and-brighter-than-material..
+dominant-intensity-value(N)..
+{corollary} of [][_ saturated _][_ saturation _][]				is saturation..
+{corollary} of [][_ dark spot _][_ very dark _][_ large black _][_ dark stain _]
+	[_ large black _][]						is darker-than-surrounding..
+{corollary} of [][_ light spot _][_ light stain _][]				is lighter-than-surrounding..
+{corollary} of [][_ darker than underside _][_ dark covering _][_ dark _ covering _]
+	[_ dark cover _][_ dark _ cover _][]				is darker-than-underside..
+{corollary} of [][_ lighter than underside _][_ light covering _][_ light _ covering _]
+	[_ light cover _][_ light _ cover _][]				is lighter-than-underside..
+{corollary} of [][_ on edge _][_ touches edge _][_ covers edge _][_ touch edge _]
+	[_ cover edge _][]	 					is on-edge..
+{corollary} of [][_ on material _][_ touches material _][_ covers material _]
+	[_ touch material _][_ cover material _][]				is on-material..
+{corollary} of [][_ covers material _][_ cover material _][]			is cover-material..
+{corollary} of [][_ saturated _][_ saturate _][]				is saturate-exist..
+{corollary} of [][_ mostly on pattern _][_ on pattern _][]			is mostly-on-pattern..
+{corollary} of [][_ cover pattern _][_ covers pattern _][_ on pattern _][]		is cover-pattern..
+{corollary} of [][_ bridge _][_ bridged _][_ mask _][_ masking _][_ micromask _]
+	[_ micromasking _][_ masked _][_ masks _]
+	[_ shorted _][_ shortage _][]					is bridge-pattern..
+{corollary} of [][_ saturated _][_ saturation _][]				is saturate-on-pattern..
+{corollary} of [][_ pattern on pattern _][_ intersected patterns _]
+	[_ pattern covers patttern _][]					is pattern-on-pattern..
+{corollary} of [][_ solid _][]						is solid..
+{corollary} of [][_ one distinctive body _][]					is one-distinctive-body..
+{corollary} of [][_ more than one distinctive body _]
+	[_ more than one distinct body _][_ several distinct _]
+	[_ several distinctive _][]					is more-than-one-distinctive-body..
+{corollary} of [][_ distinctive A _][_ distinct A _][_ A distributed _]
+	[_ A _ distributed _][]					is more-than-one-distinctive-body 	:- word [A] is plural..
+{corollary} of [][_ dispersed little bodies _][_ small particles _]
+	[_ dispersed little A _][_ dispersed small A _][]			is dispersed-little-bodies 		:- word [A] is plural..
+{corollary} of [][_ blur _][_ blurred _][_ smooth _][]				is blur-factor..
+{corollary} of [][_ circular _][]						is circular..
+{corollary} of [][_ round _][]						is more-or-less(circular)..
+{corollary} of [][_ elongated _][_ long _][]					is elongated..
+{corollary} of [][_ oblong _][_ egg _][]					is oblong..
+{corollary} of [][_ scattered _][_ small particles _][_ small fragments _][]		is scattered.. 
+{corollary} of [][_ particles _][_ fragments _][]		 		is somewhat(scattered).. 
+{corollary} of [][_ dispersed _][_ small particles _][_ many fragments _][] 		is dispersed.. 
+{corollary} of [][_ scratch _][]						is scratch.. 
+{corollary} of [][_ extended _][_ severe _][_ very _][_ large _][_ dangerous _][]	is extended-damage.. 
+{corollary} of [][_ extra pattern _][_ another pattern _][_ additional patetrn _]
+	[_ patterns _][]						is extra-pattern.. 
+{corollary} of [][_ untouched X _][_ X not touched _]
+	[_ X is untouched _][_ X is not affected _][_ X is not damaged _]
+	[_ X is safe _]
+	[_ X are untouched _][_ X are not affected _][_ X are not damaged _]
+	[_ X are safe _][]						is untouched-pattern 		:- X belong to pattern.. 
+{corollary} of [][_ on  X _][_ touches X _][_ covers X _][_ touch X _][_ cover X _]
+	[_ on _ X _][_ touches _ X _][_ covers _ X _][_ touch _ X _][_ cover _ X _]
+	[_ affects _ X _][_ affect _ X _][_ attach _ X _][_ attached _ X _][]
+	[_ smear X _][_ smears X _][_ smear _ X _][_ smears _ X _][]
+	[_ X _ covered _][_ X covered _]
+	[_ disturbance in X _][_ X disturbed _][_ X _ disturbed _]
+	[_ X distorted _][_ X _ distorted _]
+	[_ disturbance in _ X _][]					is on-pattern 			:- X belong to pattern.. 
+
+pattern belong to pattern..
+m1 line belong to pattern..
+m1 lines belong to pattern..
+lines belong to pattern..
+metal  belong to pattern..
+
+{corollary} of [][_ donut _][_ tor _][]					is donut.. 
+{corollary} of [][_ dark center _][_ center is dark _][_ black center _]
+	[_ center is black _][]					is dark-center.. 
+{corollary} of [][_ transparent _][]					is transparent-defect.. 
+{corollary} of [][_ smooth center _][_ center is smooth _][_ center is blurred _][]	is smooth-center.. 
+{corollary} of [][_ bright boundary _][_ boundary is bright _]
+	[_ boundary is shine _][]					is bright-boundary.. 
+{corollary} of [][_ dark boundary _][_ boundary is dark _][_ boundary is black _][]	is dark-boundary.. 
+{corollary} of [][_ out of focus _][_ bad focus _][_ unfocused _][]			is out-of-focus.. 
+{corollary} of [][_ center is gray _][]					is uniform-grey-level-center.. 
+{corollary} of [][_ center is darker than edge _][_ edge is brighter than center _][]	is center-darker-than-edge.. 
+{corollary} of [][_ dark edge _][_ edge is dark _][_ edge is darker _]
+	[_ black edge _][_ edge is black _][]				is dark-edge.. 
+{corollary} of [][_ not visual _][_ invisible _][_ unseen _][]			is not-visual.. 			% invisible?
+{corollary} of [][_ large _][_ vast _][_ spacious _][_ substantial _][]		is large-defect.. 
+{corollary} of [][_ orbot-unclassified _][]					is orbot-unclassified.. 
+{corollary} of [][_ orbot-pattern _][]					is orbot-pattern.. 
+{corollary} of [][_ orbot-big-particle _][]					is orbot-big-particle.. 
+{corollary} of [][_ orbot-circle-poly-res _][]					is orbot-circle-poly-res.. 
+{corollary} of [][_ orbot-scratch _][]					is orbot-scratch.. 
+{corollary} of [][_ orbot-micro-scratch _][]					is orbot-micro-scratch.. 
+{corollary} of [][_ orbot-pattern-scratch _][]					is orbot-pattern-scratch.. 
+{corollary} of [][_ orbot-small-unknown _][]					is orbot-small-unknown.. 
+{corollary} of [][_ orbot-big-unknown _][]					is orbot-big-unknown.. 
+{corollary} of [][_ red _][] 						is color-exists(red)..
+{corollary} of [][_ reddish _][] 						is color-exists(reddish)..
+{corollary} of [][_ orange _][] 						is somewhat(color-exists(yellowish)) and somewhat(color-exists(reddish))..
+{corollary} of [][_ yellowish _][] 						is color-exists(yellowish)..
+{corollary} of [][_ green _][] 						is color-exists(green)..
+{corollary} of [][_ blue _][]						is color-exists(blue)..
+{corollary} of [][_ purple _][] 						is color-exists(purple)..
+{corollary} of [][_ turquoise _][] 						is color-exists(turquoise)..
+{corollary} of [][_ black _][]						is somewhat(black)..
+{corollary} of [][_ gray _][]						is somewhat(gray)..
+{corollary} of [][_ white _][]						is somewhat(white)..
+{corollary} of [][_ whitish _][] 						is somewhat(color-exists(white))..
+{corollary} of [][_ colored _][_ color _][_ coloration _][]			is has-color-area..
+{corollary} of [][_ very C _][_ fairly C _][]			 		is dominant-color(C)			 :- colors: _[C]_..
+%{corollary} of [][_ defect is C _ ][_ large C _ ][_ C spot _][_ C stain _][_ extensive C _][]
+%								is C				 :- colors: _[C]_..
+black-1..
+black-2..
+black-3..
+gray-1..
+gray-2..
+gray-3..
+white-1..
+white-2..
+white-3..
+fov-pattern-free..
+white-color-factor(N)..
+color-factor(N)..
+on-memory-pattern..
+number-all-clusters(N)..
+number-clusters-in-ellipse(N)..
+above-layer(N)..
+below-layer(N)..
+number-of-particles(N)..
+mean-particles-area(N)..
+deviation-particles-area(N)..
+mean-contrast(N)..
+contrast-variation(N)..
+maximum-dimension(N)..
+minimum-dimension(N)..
+total-size(N)..
+big-object-size(N)..
+drt-size-x(N)..
+drt-size-y(N)..
+system-problems..
+
+
+
+
+
+
+%	CLASSES:
+%	defect class is large-open		:- more than 3 m1-lines are discontinued..
+%	defect class is micromasking		:- less than 4 m1-lines are shorted..
+ %	defect class is large-micromasking	:- more than 3 m1-lines are shorted..
+%	defect class is microscratch		:- defect is elongated, and defect is small, and defect touches m1-line..
+%	defect class is needs-sem		:- 
+%	defect class is not-visible		:- 
+%	defect class is open-contact		:- 
+%	defect class is open			:- m1-lines are discontinued, and there is no scratch..
+%	defect class is aluminium-particles	:- defect is round, and defect is white or orange..
+%	defect class is bright-spot		:- defect is bright..
+%	defect class is corrosion		:- 
+%	defect class is etch-scratch		:-
+%	defect class is extension		:-
+%	defect class is embedded-fm		:-
+%	defect class is large-embedded-fm	:- 
+%	defect class is prior-level-scratch	:- m1-lines are over defect and defect is scratch..
+%	defect class is prior-level		:- m1-lines are over defect..
+%	defect class is polish-residuals	:-
+%	defect class is printed-scratch		:- m1-lines are shorted or m1-lines are bended..
+%	defect class is residual-metal		:- m1-lines are good, and area is shiny, and number-of m1-lines is less than 4..
+%	defect class is residual-tungsten	:- m1-lines are over defect, and defect is residual metal..
+%	defect class is sidewall-attack		:- m1-lines have rough edges..
+%	defect class is surface-fm		:- 
+%	defect class is small-unknown		:-
+%	defect class is other			:- defect is visible..
+
+
+
+

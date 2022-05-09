@@ -1,0 +1,18 @@
+	% Test a word whether it is a palindrom and find its 1-st half: 2-nd version.
+	% The goal is the 1-st line; the half will be in the variable W:
+
+
+	% Goal:
+[a b c d d c b a] is palindrom made from word W..	
+
+	% Program:
+[A X A] is palindrom made from word A W :- [A] is letter ,, [X] is palindrom made from word W..			
+[A A] is palindrom made from word A:- ~~[A]=[C D]..
+[A]=[A]..
+
+
+[A] is letter :-
+	[A] belongs to list [* a b c d e f g h i j k l m n o p q r s t u v w x y z *]..
+[A] belongs to list [_ A _]..
+
+

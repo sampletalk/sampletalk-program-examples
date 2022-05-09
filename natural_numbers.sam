@@ -1,0 +1,63 @@
+% It is already not surprising that the program functionality is consistent with
+% meaning of natural language concepts "has more" "belongs to", "precedes", "start with" etc.,
+% which are defined and applied here using string matching.
+
+natural number [4 4 7] is greater than natural number [4 4 4]..
+%natural number [6 7 4] is greater than natural number [4 4 4]..
+%natural number [1 3 2 4] is greater than natural number [4 4 4]..
+%natural number [2 3 1] is greater than natural number [1 4 4 7]..
+
+natural number [M] is greater than natural number [N] :- 
+	natural number [M] starts with non-zero digit,,
+	natural number [M] has more digits than natural number [N]..
+
+natural number [D1 L1] is greater than natural number [D2 L2] :- 
+	digit [D1] is greater than digit [D2],,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural number [D L1] is greater than natural number [D L2] :- 
+	[D] is digit,,
+	natural number [L1] is greater than natural number [L2]..
+
+natural number [D1] is greater than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit,,
+	digit [D1] is greater than digit [D2]..
+
+natural number [D1 X] has more digits than natural number [D2 Y] :- 
+	[D1] is digit,,
+	[D2] is digit,,
+	natural number [X] has more digits than natural number [Y].. 
+
+natural number [D1 X] has more digits than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural numbers [D1 L1] and [D2 L2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit,,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural numbers [D1] and [D2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural number [D X] starts with non-zero digit :-
+	[D] is non-zero digit..
+
+digit [D1] is greater than digit [D2] :-
+	[D2] precedes [D1] in list [*[0]*[1]*[2]*[3]*[4]*[5]*[6]*[7]*[8]*[9]*].. 
+	
+[D] is non-zero digit :-
+	[D] belongs to list [[1] [2] [3] [4] [5] [6] [7] [8] [9]]..	
+
+[D] is digit :-
+	[D] belongs to list [[0] [1] [2] [3] [4] [5] [6] [7] [8] [9]]..	
+
+[A] belongs to list [X [A] Y]..
+[A] belongs to list [[A] Y]..
+[A] belongs to list [X [A]]..
+
+[A] precedes [B] in list [X[A]Y[B]Z]..	
+
+

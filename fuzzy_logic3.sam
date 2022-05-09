@@ -1,0 +1,54 @@
+	% Goal:
+%translation of [conductor is near brim] is X..
+%translation of [border is fairly pink, and white strips intersect tissue area] is X..
+%translation of [when white strips intersect tissue area, border is pink] is X..
+%translation of [when white strips intersect tissue area, border is fairly pink] is X..
+%translation of [conductor is near brim, and when white strips intersect tissue area, border is fairly pink] is X..
+%translation of [white strips intersect tissue area] is X..
+%translation of [border is fairly pink] is X..
+translation of [when conductor is near brim, border is pink] is X..
+
+
+	% Grammar and logic patterns
+
+translation of [A, and B] is 	X  and  Y :- 	translation of [A] is X,,	translation of [B] is Y..
+translation of [A, while B] is 	X  and  Y :- 	translation of [A] is X,,	translation of [B] is Y..
+translation of [if A, B] is 	not (X)  or  Y :-	translation of [A] is X,,	translation of [B] is Y..
+translation of [since A, B] is 	not (X)  or  Y :-	translation of [A] is X,,	translation of [B] is Y..
+translation of [when A, B] is 	not (X)  or  Y :-	translation of [A] is X,,	translation of [B] is Y..
+translation of [X is Y] is	Y(X) :-		Y is 1-arity predicate,,	X is object..
+translation of [X V Y] is 	V (X , Y) :-	V is 2-arity verb,, Y is object,,	X is object..
+
+	% Fuzzy logic calculus patterns
+translation of [X is C Y] is 	C (Y , X) :-	C is fuzzy qualifier,, Y is 1-arity predicate,, X is object..
+translation of [X is C Y] is 	C (Y , X) :-	C is fuzzy 2-arity predicate,, X is object,, Y is object..
+
+	% Handling unrecignizable words and phrases:
+translation of [A] is [unknown object]..
+
+pink 		is 	1-arity predicate..
+yellow 		is 	1-arity predicate..
+
+intersect 		is 	2-arity verb..
+
+border 		is 	object..
+tissue area	is 	object..
+white strips	is 	object..
+stain		is 	object..
+blot		is 	object..
+blur		is 	object..
+blutch		is 	object..
+conductor	is 	object..
+brim		is 	object..
+
+
+fairly 		is 	fuzzy qualifier..
+not enough	is 	fuzzy qualifier..
+somewhat	is 	fuzzy qualifier..
+almost		is 	fuzzy qualifier..
+almost not	is 	fuzzy qualifier..
+slightly		is 	fuzzy qualifier..
+
+thick 		is 	fuzzy 1-arity predicate..
+near 		is 	fuzzy 2-arity predicate..
+

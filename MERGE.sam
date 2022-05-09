@@ -1,0 +1,21 @@
+	% Merging sorted lists. See also programs LISTDIV.SAM and SORTMERG.SAM.
+
+	% Goal (variable W stands for the merged list):
+[{2}{7}{14}{19}{22}{100} ] + [{7}{9}{33} ] = W..
+
+	% Program (sample {K<L} executes Prolog comparison of the numbers):
+[{K}A] + [{L}B] = {K}W :- {K<L} ,, [A] + [{L}B] = W..	
+[{K}A] + [{L}B] = W :- {K=L} ,, l[A] + [{L}B] = W..
+[{K}A] + [{L}B] = {L}W :- [{K}A] + [B] = W..
+[ ] + [A ] = A ..
+[A ] + [ ] = A ..
+
+	% Notation [list] = [list] + [list] is introduced just here.
+	% There is not any special semantics for "+" and "=": these are ordinary SAMPLE characters.
+	% In SORTMERGE.SAM we use more expressive notation of these clauses.
+
+
+
+
+
+

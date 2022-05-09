@@ -1,0 +1,16 @@
+option parallel inference..
+%	[a rhombus is a quadrangle]..
+%	[a square is a quadrangle]..
+	[a square is a rhombus]..
+%	[a rectangle is a parallelogram]..
+%	[a rectangle is a quadrangle]..
+
+
+[a rectangle is a parallelogram with equal diagonals].. 
+[a rhombus is a parallelogram with equal adjacent sides].. 
+[a square is a rectangle with equal adjacent sides].. 
+[a parallelogram is a quadrangle with two pairs of parallel sides].. 
+
+[a A is a B] :- [a A is a B with P].. 
+[a A is a C] :- [a A is a B] ,, [a B is a C].. 
+[a A is a D] :- [a A is a B with X] ,, [a B is a C] ,, [a D is a C with X]..

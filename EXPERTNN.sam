@@ -1,0 +1,25 @@
+	% Slightly developed version of program EXPERTNL.SAM.
+
+	% Possible goals (please leave uncommented exactly one of them):
+%who is julia ? R..
+%where is new york ? in R..
+% human X is son of maria and Y..
+% human jack N is Y of Z..
+% human X 2 is son of Y and X 1..
+ what is on a table ? R..                          
+
+	% Inference rules:
+what is on X ? R :- object "R" is situated on X..  	
+who is X ? R :- human X is R..
+where is X ? in R :- object "X" is situated in R..
+
+           	% Factual knowledge:
+human joe is son of maria and peter..
+human julia is daughter of maria and peter..
+human peter 2 is son of maria and peter 1..
+human jack 2 is son of julia and jack 1..
+object "new york" is situated in america..
+object "st.petersburg" is situated in russia..
+object "a book" is situated on a table..
+
+

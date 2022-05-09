@@ -1,0 +1,49 @@
+% TRANSFER:   Russian-English tanslation (see comments below). Goal:
+
+s[когда s[я проснулся d[на следующее утро]], s[s[ее в доме не было], и 
+s[записки мне она тоже не оставляла]]]=_..
+
+% Transfer rules (notice the 4-th rule, where the word order 
+% of source text is changed in the target phrase):
+
+s[когда s[A], s[B]]=s[when s[X], s[Y]]		:-s[A]=s[X],,s[B]=s[Y]..
+s[я Vлся d[A]]=s[i W d[B]]			:-vpast[Vлся]=vpast[W],,d[A]=d[B]..
+s[s[A], и s[B]]=s[s[C], and s[D]]		:-s[A]=s[C],,s[B]=s[D]..
+s[Aки мне она тоже не Bла]=s[she did not C me a D, too] :-n[Aки]=n[D],,vpast[Bла]=v[C]..
+s[ее в A не было]=s[she was not in the B]	:-n[A]=n[B]..
+d[на A N]=d[in the B M]				:-a[A]=a[B],,n[N]=n[M]..
+
+% Dictionary:
+
+vpast[проснул_]=vpast[awoke]..
+a[следующ_]=a[following]..
+n[утр_]=n[morning]..
+n[дом_]=n[house]..
+n[запис_]=n[note]..
+vpast[оставля_]=v[leave]..
+
+               
+% Comments: This program translates some small subset of Russian into 
+% English. We obtained (manually) its transfer rules by generalization
+% of 1 (parsed) translation example, which now is the output of this program:
+%    Когда s[я проснулся d[на следующее утро]], s[s[ее в доме не было], и
+%    s[записки мне она тоже не оставляла]]=
+%    when s[i awoke d[in the following morning]], s[s[she was not in the house],
+%    and s[she did not leave me a note, too]..
+%
+% The translated subset may be easily expanded (here we don't consider 
+% the problems of morphology (see program MORPH) and ambiguity).
+% Look at the next new phrase, which was translated "free" after such a 
+% generalization of the first one:
+%
+%    s[когда s[ее в доме не было], s[я проснулся d[на следующее утро]]]=
+%    s[when s[she was not in the house], s[i awoke d[in the following 
+%    morning]]].. 
+
+
+
+
+
+
+
+

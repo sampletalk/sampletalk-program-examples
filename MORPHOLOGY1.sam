@@ -1,0 +1,57 @@
+%result of morphological analysis of word [b a c k] is: X..  
+%result of morphological analysis of word [b a c k e d] is: X..  
+%result of morphological analysis of word [b a k e d] is: X..  
+%result of morphological analysis of word [q u e r i e d] is: X..
+result of morphological analysis of word [q u e r i e s] is: X..
+
+result of morphological analysis of word [W i e d] is: this is past form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 	 	% e.g. query > queried
+result of morphological analysis of word [W e d] is: this is past form of verb "W e" :- 
+	W e has canonic morphologic tag verb.. 		% e.g. bake > baked
+result of morphological analysis of word [W e d] is: this is past form of verb "W" :-
+	 W has canonic morphologic tag verb..			% e.g. absorb > absorbed
+result of morphological analysis of word [W i e s] is: this is 2-sg form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 		% e.g. query > queries
+result of morphological analysis of word [W e s] is: this is 2-sg form of verb "W e" :-
+	W e has canonic morphologic tag verb.. 		% e.g. bake > bakes
+result of morphological analysis of word [W s] is: this is 2-sg form of verb "W" :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorbs
+result of morphological analysis of word [W i e n] is: this is past-p form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 		
+result of morphological analysis of word [W e n] is: this is past-p form of verb "W e" :- 
+	W e has canonic morphologic tag verb.. 		% e.g. bake > baken
+result of morphological analysis of word [W e n] is: this is past-p form of verb "W" :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorben
+result of morphological analysis of word [W y i n g] is: this is ing-form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 		% e.g. query > querying
+result of morphological analysis of word [W i n g] is: this is ing-form of verb "W e" :- 
+	W e has canonic morphologic tag verb.. 		% e.g. bake > baking
+result of morphological analysis of word [W i n g] is: this is ing-form of verb "W" :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorbing
+result of morphological analysis of word [W] is: this is canonic verb form "W" 	:- 
+	W has canonic morphologic tag verb..			% e.g. absorb, query
+result of morphological analysis of word [W i e s] is: this is plural form of noun "W y" :- 
+	W y has canonic morphologic tag singular noun.. 		% e.g. query > queries
+result of morphological analysis of word [W e s] is: this is plural form of noun "W e" :- 
+	W e has canonic morphologic tag singular noun.. 		% e.g. bake > bakes
+result of morphological analysis of word [W s] is: this is plural form of noun "W" :- 
+	W has canonic morphologic tag singular noun..		% e.g. editor > editors
+result of morphological analysis of word [W] is: this is canonic singular form of noun "W" :- 
+	W has canonic morphologic tag singular noun.. 		 % e.g. bake, editor
+result of morphological analysis of word [W] is: this is adverb "W" :- 
+	W has canonic morphologic tag adverb.. 		% e.g. back, easy
+result of morphological analysis of word [W] is: this is adjective "W" :- 
+	W has canonic morphologic tag adjective.. 		% e.g. red
+
+
+b a c k		has canonic morphologic tag 	singular noun..
+b a c k		has canonic morphologic tag 	adverb..
+b a c k		has canonic morphologic tag 	verb..
+b a k e		has canonic morphologic tag 	singular noun..
+b a k e		has canonic morphologic tag 	verb..
+b a k e r		has canonic morphologic tag 	singular noun..
+b a k e r y	has canonic morphologic tag 	singular noun..
+q u e r y		has canonic morphologic tag 	singular noun..
+q u e r y		has canonic morphologic tag 	verb..
+
+

@@ -1,0 +1,12 @@
+reverse of comma-separated word list [c a t , d o g , m o n k e y] is [X]..
+
+	% Program:
+reverse of comma-separated word list [A , B] is [C , A] :- 
+	reverse of comma-separated word list [B] is [C]..
+reverse of comma-separated word list [A] is [A]..
+
+
+
+
+
+

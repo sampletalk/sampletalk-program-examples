@@ -1,0 +1,23 @@
+	% Recognition of regularities in word codes. 
+
+	% Goals (Leave uncommented exactly one of them):
+word [a x y z x y z b] contains repetition of word [Z] ..
+%word [a x y z x y z x y z x y z b] contains repetition of word [Z]..
+
+	% Program:
+word [_ X _] contains repetition of word [Z] :- [X] is repetition of [Z]..	
+[X X] is repetition of [X]..
+[Z X] is repetition of [X] :- [Z] is repetition of [X]..
+
+	% Try this program with various compiler options.
+
+
+
+
+
+
+
+
+
+
+

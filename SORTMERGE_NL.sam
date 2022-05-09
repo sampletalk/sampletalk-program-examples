@@ -1,0 +1,85 @@
+result of sorting natural number list [[7],[8 1 2 2],[2],[2],[1 2],[3 4 5]] is natural number list [X]..
+
+result of sorting natural number list [[M],[N]] is natural number list [[M],[N]] :- 
+	natural number [M] is smaller than natural number [N]..
+result of sorting natural number list [[M],[N]] is natural number list [[N],[M]]..
+result of sorting natural number list [[M]] is natural number list [[M]]..
+
+result of sorting natural number list [A] is natural number list [W] :- 
+	natural number list [A] consists of even elemens [E] and odd elements [O],,
+	result of sorting natural number list [E] is natural number list [X],,
+	result of sorting natural number list [O] is natural number list [Y],,
+	result of merging natural number lists [X] and [Y] is natural number list [W]..
+
+natural number list [[A],[B]] consists of even elemens [[B]] and odd elements [[A]].. 
+natural number list [[A],[B],[C]] consists of even elemens [[B]] and odd elements [[A],[C]].. 
+natural number list [[A],[B],[C],[D]] consists of even elemens [[B],[D]] and odd elements [[A],[C]].. 
+natural number list [[A],[B],[C],X] consists of even elemens [[B],E] and odd elements [[A],[C],O] :- 
+	natural number list [X] consists of even elemens [O] and odd elements [E]..	
+
+result of merging natural number lists [A] and [B] is natural number list [X] :-
+	result of merging end-marked natural number lists [A,end] and [B,end] is natural number list [X]..
+
+result of merging end-marked natural number lists [[K],A] and [[L],B] is natural number list [[K],X] :- 
+	natural number [K] is smaller than natural number [L],,
+	result of merging end-marked natural number lists [A] and [[L],B] is natural number list [X]..	
+result of merging end-marked natural number lists [[K],A] and [[L],B] is natural number list [[L],X] :- 
+	result of merging end-marked natural number lists [[K],A] and [B] is natural number list [X]..
+result of merging end-marked natural number lists [end] and [A,end] is natural number list [A]..
+result of merging end-marked natural number lists [A,end] and [end] is natural number list [A]..
+
+natural number [M] is smaller than natural number [N] :-
+	natural number [N] is greater than natural number [M].. 
+
+natural number [M] is greater than natural number [N] :- 
+	natural number [M] starts with non-zero digit,,
+	natural number [M] has more digits than natural number [N]..
+
+natural number [D1 L1] is greater than natural number [D2 L2] :- 
+	digit [D1] is greater than digit [D2],,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural number [D L1] is greater than natural number [D L2] :- 
+	[D] is digit,,
+	natural number [L1] is greater than natural number [L2]..
+
+natural number [D1] is greater than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit,,
+	digit [D1] is greater than digit [D2]..
+
+natural number [D1 X] has more digits than natural number [D2 Y] :- 
+	[D1] is digit,,
+	[D2] is digit,,
+	natural number [X] has more digits than natural number [Y].. 
+
+natural number [D1 X] has more digits than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural numbers [D1 L1] and [D2 L2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit,,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural numbers [D1] and [D2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural number [D X] starts with non-zero digit :-
+	[D] is non-zero digit..
+
+digit [D1] is greater than digit [D2] :-
+	[D2] precedes [D1] in list [*[0]*[1]*[2]*[3]*[4]*[5]*[6]*[7]*[8]*[9]*].. 
+	
+[D] is non-zero digit :-
+	[D] belongs to list [[1] [2] [3] [4] [5] [6] [7] [8] [9]]..	
+
+[D] is digit :-
+	[D] belongs to list [[0] [1] [2] [3] [4] [5] [6] [7] [8] [9]]..	
+
+[A] belongs to list [X [A] Y]..
+[A] belongs to list [[A] Y]..
+[A] belongs to list [X [A]]..
+
+[A] precedes [B] in list [X[A]Y[B]Z]..	

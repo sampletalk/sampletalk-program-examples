@@ -1,0 +1,31 @@
+number [2] is smaller than number [1 7]..
+
+number [M] is smaller than number [N]:-
+	[M] is a digit,, [N] is a digit,, digit [M] is smaller than digit [N]..
+
+number [M] is smaller than number [X]:- 
+	[M] is a digit, [X] is a list of two or more digits..
+
+digit [M] is smaller than digit [N]:- 
+	digits _ [M] _ [N] _ are arranged in ascending order..
+
+
+digits [0] [1] [2] [3] [4] [5] [6] [7] [8] [9] are arranged in ascending order..
+
+
+[0] is a digit..
+[1] is a digit..
+[2] is a digit..
+[3] is a digit..
+[4] is a digit..
+[5] is a digit..
+[6] is a digit..
+[7] is a digit..
+[8] is a digit..
+[9] is a digit..
+
+
+[M N] is a list of two or more digits:-
+	[M] is a digit,, [N] is a digit..
+[M X] is a list of two or more digits:-
+	[M] is a digit,, [X] is a list of two or more digits:-

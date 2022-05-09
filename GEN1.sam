@@ -1,0 +1,22 @@
+	% Recognition of regularities in word codes.
+
+	% Goal:
+words [a 1 2 z b] and [c z 2 1 d] have inversion fragments [X] and [Y]..	
+
+	% Program:
+words [A X B] and [C Y D] have inversion fragments [X] and [Y] :- reverse of [X] is [Y]..
+reverse of [A M] is [N A]:-reverse of [M] is [N]..
+reverse of [A B] is [B A]..
+
+	% See program REVERSE1.SAM for explanation of the last clauses. Try this program with various 
+	% compiler options: Find All Decisions, Write Immediate Results (Yes/No), Stop Between Output 
+	% Lines etc). English words, introduced just here, work simultaneously as the algorithm elements 
+	% and as designations of the corresponding concepts. Concept of "reverse" is comprehensively 
+	% defined here.
+
+
+
+
+
+
+

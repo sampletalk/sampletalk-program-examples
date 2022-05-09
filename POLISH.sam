@@ -1,0 +1,17 @@
+	% Transformation of infix notation of arithmetic expressions into prefix notation.
+
+	% Possible goals (leave uncommented exactly one of them):
+prefix form for expression [[[a + b] * c] * [u + v]] is expression X..
+%prefix form for expression [[a + b] * c] is expression X..
+%prefix form for expression [[a + b] * [c - d]] is expression X..
+%prefix form for expression [[a1 + b2] * [[a - b] / 3]] is expression X..
+
+	% Program:
+prefix form for expression [A Z B] is expression Z X Y :-
+	prefix form for expression A is expression X ,, 
+	prefix form for expression B is expression Y..
+prefix form for expression A is expression A..
+
+	
+
+

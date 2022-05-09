@@ -1,0 +1,16 @@
+	% Generating list permutations. Proably this is the shortest possible representation of alorithm 
+	% for generating list permutations for universal programming languages. 
+	% Run this program using the option for finding all decisions.
+
+	% Goal:
+permutation of list ( {1} {2} {3} {4} ) is list [W]..
+
+	% Program:
+permutation of list A {M} B is list [{M}W] :- permutation of list A B is list [W]..
+permutation of list ( ) is list [ ]..
+
+
+
+
+
+

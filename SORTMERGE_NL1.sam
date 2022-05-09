@@ -1,0 +1,137 @@
+
+
+
+
+
+
+		if ( RLCenterMask.GetArea() >= MIN_DEFECT_AREA )
+		{
+			CRunLength RLRingMask = RLDifferMask - RLCenterMask;
+			int max = -1;
+			float center_intensity, ring_intensity;
+			while ( RLCenterMask.GetArea() >= MIN_DEFECT_AREA ) 
+		{
+
+	Text theory, given in this appendix, is theory of natural 
+number lists. The theory includes complete formalization of 
+number comparison and classic merge sort algorithm, including 
+algorithm for splitting a list into even and odd elements
+and algorithm for merging ordered lists. Natural numbers are 
+represented as lists of space-separated digits in brackets, e.g. [1 2 8]. 
+	Note the following amazing feature of this theory. Although it is 
+quite complex, it does not apply any algorithmic concepts besides 
+text unification. The theory includes =implicit= definitions of some knowledge  
+about words and concepts "has more", "is", "belongs to", "precedes", 
+"starts with" "result of" etc. It is already not surprising for us 
+that natural-language meaning of these concepts is totally 
+consistent with functionality of the theory.
+
+The theory is written in form of Sampletalk program.
+Below are some possible inputs for the theory:
+
+1) result of sorting natural number list [[7],[1 2 8],[2],[2],[1 2],[3 4 5]] is natural number list [X]..
+2) natural number list [[7],[3],[1 2],[5],[6 6]] consists of even elemens [[X]] and odd elements [[Y]]..
+3) result of merging ordered natural number lists [[4],[1 5 5],[2 0 0] and [[2],[1 2],[1 4 5]] is ordered natural number list [X]..
+4) [1 2] belongs to list [[2],[7],[1 2],[4]].. 
+5) [1 7] belongs to list [[2],[7],[1 2],[4]].. 
+
+Variables X and Y are to be instantiated by the theory. The corresponding 
+outputs of the theory are as follows:
+
+1) result of sorting natural number list [[7],[1 2 8],[2],[2],[1 2],[3 4 5]] is natural number list [[2],[2],[7],[1 2],[1 2 8],[3 4 5]]..
+2) natural number list [[7],[3],[1 2],[5],[6 6]] consists of even elemens [[3],[5]] and odd elements [[7],[1 2],[6 6]]..
+3) result of merging ordered natural number lists [[4],[1 5 5],[2 0 0] and [[2],[1 2],[1 4 5]] is ordered natural number list [[2],[4],[1 2],[1 4 5],[1 5 5],[2 0 0]]..
+4) [1 2] belongs to list [[2],[7],[1 2],[4]]..
+5) No.
+
+The last input contradicts to the theory, so application of the theory
+to this input leads to failure. 
+	This is the text theory:
+
+result of sorting natural number list [[M],[N]] is natural number list [[M],[N]] :- 
+	natural number [M] is smaller than natural number [N]..
+
+result of sorting natural number list [[M],[N]] is natural number list [[N],[M]]..
+result of sorting natural number list [[M]] is natural number list [[M]]..
+
+result of sorting natural number list [A] is natural number list [W] :- 
+	natural number list [A] consists of even elemens [E] and odd elements [O],,
+	result of sorting natural number list [E] is natural number list [X],,
+	result of sorting natural number list [O] is natural number list [Y],,
+	result of merging ordered natural number lists [X] and [Y] is ordered natural number list [W]..
+
+natural number list [[A],[B]] consists of even elemens [[B]] and odd elements [[A]].. 
+natural number list [[A],[B],[C]] consists of even elemens [[B]] and odd elements [[A],[C]].. 
+natural number list [[A],[B],[C],[D]] consists of even elemens [[B],[D]] and odd elements [[A],[C]].. 
+
+natural number list [[A],[B],[C],X] consists of even elemens [[B],E] and odd elements [[A],[C],O] :- 
+	natural number list [X] consists of even elemens [O] and odd elements [E]..	
+
+result of merging ordered natural number lists [A] and [B] is ordered natural number list [X] :-
+	result of merging end-marked ordered natural number lists [A,end] and [B,end] is ordered natural number list [X]..
+
+result of merging end-marked ordered natural number lists [[K],A] and [[L],B] is ordered natural number list [[K],X] :- 
+	natural number [K] is smaller than natural number [L],,
+	result of merging end-marked ordered natural number lists [A] and [[L],B] is ordered natural number list [X]..	
+
+result of merging end-marked ordered natural number lists [[K],A] and [[L],B] is ordered natural number list [[L],X] :- 
+	result of merging end-marked ordered natural number lists [[K],A] and [B] is ordered natural number list [X]..
+
+result of merging end-marked ordered natural number lists [end] and [A,end] is ordered natural number list [A]..
+result of merging end-marked ordered natural number lists [A,end] and [end] is ordered natural number list [A]..
+
+natural number [M] is smaller than natural number [N] :-
+	natural number [N] is greater than natural number [M].. 
+
+natural number [M] is greater than natural number [N] :- 
+	natural number [M] starts with non-zero digit,,
+	natural number [M] has more digits than natural number [N]..
+
+natural number [D1 L1] is greater than natural number [D2 L2] :- 
+	digit [D1] is greater than digit [D2],,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural number [D L1] is greater than natural number [D L2] :- 
+	[D] is digit,,
+	natural number [L1] is greater than natural number [L2]..
+
+natural number [D1] is greater than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit,,
+	digit [D1] is greater than digit [D2]..
+
+natural number [D1 X] has more digits than natural number [D2 Y] :- 
+	[D1] is digit,,
+	[D2] is digit,,
+	natural number [X] has more digits than natural number [Y].. 
+
+natural number [D1 X] has more digits than natural number [D2] :- 
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural numbers [D1 L1] and [D2 L2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit,,
+	natural numbers [L1] and [L2] have the same number of digits..
+
+natural numbers [D1] and [D2] have the same number of digits :-
+	[D1] is digit,, 
+	[D2] is digit..
+
+natural number [D X] starts with non-zero digit :-
+	[D] is non-zero digit..
+
+digit [D1] is greater than digit [D2] :-
+	[D2] precedes [D1] in list [*,[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],*].. 
+	
+[D] is non-zero digit :-
+	[D] belongs to list [[1],[2],[3],[4],[5],[6],[7],[8],[9]]..	
+
+[D] is digit :-
+	[D] belongs to list [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]]..	
+
+[A] belongs to list [X,[A],Y]..
+[A] belongs to list [[A],Y]..
+[A] belongs to list [X,[A]]..
+
+[A] precedes [B] in list [X[A]Y[B]Z]..	

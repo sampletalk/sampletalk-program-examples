@@ -1,0 +1,18 @@
+	% Generating list permutations (2-nd version).
+	% Run this program using the option for finding all decisions.
+
+	% Goal:
+permutation of list {1} {2} {3} {4} is list [W]..
+
+	% Program:
+permutation of list A {M} B 	is list [{M} W] :- permutation of list A B 	is list [W]..
+permutation of list {M} A 	is list [{M} W] :- permutation of list A 	is list [W]..
+permutation of list A {M} 	is list [{M} W] :- permutation of list A 	is list [W]..
+permutation of list {A} 	is list [{A}]..
+
+
+
+
+
+
+

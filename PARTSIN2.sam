@@ -1,0 +1,19 @@
+	% Parts Inventory (version of the program PARTSIN1.SAM).
+	% This program does without the concept of "basic part" at all.
+
+	% Goal:
+parts of bike are [W]..
+
+	% Knowledgebase:
+bike contains [wheel] [wheel] [frame]..
+wheel contains [spoke] [rim] [hub]..
+frame contains [rearframe] [frontframe]..
+frontframe contains [fork] [handles]..
+hub contains [gears] [axle]..
+axle contains [bolt] [nut]..
+parts of C [A] B are [W] :- A contains L ,, parts of C L B are [W]..
+parts of B are [W] :- B contains L ,, parts of begin L end are [W]..
+parts of W are [W]..
+
+
+

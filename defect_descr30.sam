@@ -1,0 +1,161 @@
+%r[pattern is slightly disturbed] --> [T].. 
+%r[pattern covering pattern] --> [T].. 	
+%r[pattern area covering pattern] --> [T].. 	
+%r[pattern covering pattern area] --> [T].. 	
+%r[pattern area covering pattern area] --> [T].. 	
+%r[large fragment covering pattern area] --> [T].. 	
+%r[large fragment slightly covering pattern area] --> [T].. 	
+%r[a large fragment slightly covering pattern area] --> [T].. 	
+%r[a large fragment slightly covering the pattern area] --> [T].. 	
+%r[a large pattern fragment slightly covering the area] --> [T].. 	
+%r[a large pattern fragment slightly covering pattern area] --> [T].. 	
+%r[a large pattern fragment slightly covering the underlying pattern area] --> [T].. 	
+%r[a large pattern fragment slightly covering the underlying pattern area] --> [T].. 	
+%r[a large fragment of pattern slightly covering the underlying pattern area] --> [T].. 	
+%r[large fragment of pattern material slightly covering the underlying pattern area] --> [T].. 	
+%r[a large fragment of pattern material slightly covering the underlying pattern area] --> [T].. 	
+%r[a large fragment of pattern material slightly covering area of underlying pattern] --> [T].. 	
+r[a large fragment of pattern material slightly covering the main area of the pattern] --> [T].. 	
+%r[small clusters of pattern material slightly covering large area of metal lines] --> [T]..
+%r[metal clusters covering pattern where pattern touches another pattern area] --> [T].. 	
+%r[bright stain covering pattern where pattern touches another pattern area] --> [T].. 	
+
+
+
+%r[small bright stain] --> [T].. 	
+
+%r[small bright stain with dark edges] --> [T].. 	
+%r[small dark stain with bright edges] --> [T].. 	
+%r[dark stains with bright edges] --> [T].. 	
+%r[pattern material particles cover the pattern] --> [T].. 	
+%r[pattern is visible. dark stains cover it near the border] --> [T].. 	
+%r[pattern is visible but covered with dark stains] --> [T].. 	
+%r[dark particles appear near pattern lines, covering its surface] --> [T].. 	
+%r[small clusters of pattern material, slightly covering area of metal lines] --> [T].. 	
+r[particles of pattern material are distributed on the surface of the pattern] --> [T].. 	
+
+
+deundrl[[A]X] --> [A Y] :- 	~~[word A contain [_]] ,, deundrl[X] --> [Y]..
+deundrl[A] --> A :-		~~[word A contain [_]] ..
+deundrl[A] --> [A]..
+[word _[_]_ contain [_]]..
+
+r[X] --> [T] :- undrl[# # X # #] --> [U] ,, p[U] --> [T]..
+undrl[A X] --> [[A]Y] :- undrl[X] --> [Y]..
+undrl[A] --> [A]..
+
+p[A[L]X[R]B] --> [W] :-	
+	reduce[L][S][X][R] ,, 
+	deundrl[X] --> [Y] ,,
+     	p[A[L][S[Y]][R]B] --> [W] ..       
+p[X] --> [X]..
+
+reduce[L][S][[A][B][C][D]][R]	:- m[L U],, m[A X] ,, m[B Y] ,,  m[C Z] ,, m[D T] ,, m[R V] ,, gram[_ U _] S[X Y Z T] [_ V _] ..
+reduce[L][S][[A][B][C]][R] 	:- m[L U],, m[A X] ,, m[B Y] ,,  m[C Z] ,, 	  m[R V] ,, gram[_ U _] S[X Y Z] [_ V _] ..
+reduce[L][S][[A][B]][R] 	:- m[L U],, m[A X] ,, m[B Y] ,, 	                m[R V] ,, gram[_ U _] S[X Y] [_ V _] ..
+
+gram[# # #] 		n[n prep n]	[# # ad ving #]..
+gram[# ving #]		n[n prep n] 	[# # #]..
+gram[# # #] 		n[det ving n n]	[# # ad ving #]..
+gram[# ving #]		n[det ving n n] 	[# # #]..
+gram[# # #] 		n[det ving n]	[# # ad ving #]..
+gram[# ving prep #]		n[det ving n] 	[# # #]..
+gram[# # #] 		n[det aj n n]	[# # ad ving #]..
+gram[# ving #]		n[det aj n n] 	[# # #]..
+gram[# # #] 		n[det aj n]	[# # ad ving prep #]..
+gram[# ving v #]		n[det aj n] 	[# # prep #]..
+gram[# # #] 		n[det n n]		[## ad ving #]..
+gram[# ving v #]		n[det n n] 	[# # #]..
+gram[# # #] 		n[det n]		[# # ad ving #]..
+gram[# v ving prep #]	n[det n] 		[# # prep #]..
+gram[# # #] 		n[aj n]		[# # ad ving prep #]..
+gram[# ving #]		n[aj n] 		[# # prep #]..
+gram[# # #] 		n[aj aj n]		[# # ad ving prep #]..
+gram[# ving #]		n[aj aj n] 		[# # prep #]..
+gram[# # #] 		n[ving n n]	[# # ad ving #]..
+gram[# ving #]		n[ving n n] 	[# # #]..
+gram[# # #] 		n[ving n]		[# # ad ving #]..
+gram[# ving prep #]		n[ving n] 		[# # #]..
+gram[# # prep #] 		n[n n]		[# # ad ving be #]..
+gram[# ving #]		n[n n] 		[# # #]..
+gram[# # #]	 	n[n ving n]	[# # where #]..
+
+gram[# n #]	 	ving[ad ving]	[# n #]..
+gram[# be #]	 	ved[ad ved]	[# # #]..
+
+gram[# # where #]	 	s[n v n]		[# # #]..
+gram[# # where #]	 	s[n be ved]	[# # #]..
+gram[# # where #]	 	s[n be aj]		[# # #]..
+
+
+
+m[#		#]..
+m[n[_]		n]..
+m[ving[_]		ving]..
+m[ved[_]		ved]..
+
+m[a		det]..
+m[another	det]..
+m[area		n]..
+m[areas		n]..
+m[bright		aj]..
+m[covering	ving]..
+m[cover		v]..
+m[covers		v]..
+m[cluster		n]..
+m[clusters	n]..
+m[dark		aj]..
+m[disturbed	ved]..
+m[disturbing	ving]..
+m[edge		n]..
+m[edges		n]..
+m[fragment	n]..
+m[fragments	n]..
+m[is		be]..
+m[large		aj]..
+m[line		n]..
+m[lines		n]..
+m[main		aj]..
+m[material	n]..
+m[materials	n]..
+m[metal		n]..
+m[metalic	aj]..
+m[of		prep]..
+m[other		aj]..
+m[pattern		n]..
+m[patterns	n]..
+m[slightly	ad]..
+m[stain		n]..
+m[stains		n]..
+m[substantially	ad]..
+m[small		aj]..
+m[the		det]..
+m[touch		v]..
+m[touches	v]..
+m[touching	ving]..
+m[underlying	ving]..
+m[where		where]..
+m[with		prep]..
+
+
+inference[pattern covering pattern] --> pattern-on-pattern..
+
+simplify [D X] --> [Y] :- m[D det],,simplify [X] --> [Y]  ..
+simplify [pattern area] --> [pattern]..
+simplify [pattern fragment] --> [pattern]..
+simplify [pattern material] --> [pattern]..
+simplify [fragment of X] --> [Y] :- simplify [X] --> [Y]  ..
+simplify [A X] --> [Y] :- m[A aj] ,,simplify [X] --> [Y]  ..
+simplify [A X] --> [Y] :- m[A ving] ,,simplify [X] --> [Y]  ..
+simplify [A X] --> [Y] :- m[A ad] ,,simplify [X] --> [Y]  ..
+simplify [area of X] --> [Y] :- simplify [X] --> [Y]  ..
+simplify [X] --> [X]..
+
+
+
+
+inference [pattern covering pattern] --> pattern-on-pattern..
+
+
+
+

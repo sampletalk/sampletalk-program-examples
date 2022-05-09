@@ -1,0 +1,28 @@
+%  SER_INT. Musicologic Analisis: Generation of All-Intervale series.
+%  This program searches for such permutations of the list of digits
+%  1,2,...12 (12 sequential tones of a dodecaphonic series),
+%  that the set of (reduced by mod 6) intervales between the adjacent
+%  tones is 1,1,2,2,3,3,4,4,5,5,6. 
+%  Calculation of the intervales is made by Prolog calls.
+%  See also the programs PERMUT, SERIES.
+%  Use SENSITIVE BACKTRACKING and FIND ALL DECISIONS options.
+
+all-intervale series W..
+
+all-intervale series W:-
+prev {0}; 
+intervales [{X}{1}{1}{2}{2}{3}{3}{4}{4}{5}{5}{6}];
+permutation of {1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12} is [W]..
+
+prev {P}; 
+intervales [X{S}Y]; 
+permutation of A{M}B is [{M}W]:-
+  	{(I is abs(M-P),ifthenelse((I<6),(S is I),(S is 12-I)))},,
+	prev{M}; int[X Y]; 
+	permutation of AB is ->[W]..
+
+prev{P}; 
+intervales [X Y]; 
+permutation of * * is [ ]..
+
+

@@ -1,0 +1,16 @@
+	% Word Inversion. Compare this program to programs REVERSE2.SAM and REVERSEL.SAM.
+
+	% Goal:
+reverse of the word [a b c d e f] is [X]..
+
+	% Program:
+reverse of the word [A M] is [N A] :- reverse of the word [M] is [N]..
+reverse of the word [A] is [A]..
+
+
+
+
+
+
+
+

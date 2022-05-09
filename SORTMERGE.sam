@@ -1,0 +1,36 @@
+	% Sorting a list of numbers by dividing the list into two parts, sorting these parts, 
+	% and then merging the results. See also programs LISTDIV.SAM - dividing a list, 
+	% MERGE.SAM - merging lists.
+
+	% Goal (variable W stands for the sorted list):
+sort of the list {7}{7}{7}{128}{2}{12}{10}{-130}{1993}{1492}{5743}* is list W..
+
+	% Program. Boundary conditions for 2-element and 1-element lists:
+sort of the list {M}{N}* is list {M}{N}* :- {M<N} ..
+sort of the list {M}{N}* is list {N}{M}* ..
+sort of the list {M}* is list {M}* ..
+
+	% Recursive rule:
+sort of the list A is list W :- 
+	list A consists of even elemens [E] and odd elements [O] ,,
+	sort of the list E is list X ,,
+	sort of the list O is list Y ,,
+	result of merging lists [X] and [Y] is list W ..
+
+	% Clauses for dividing a list into two parts - for even and odd elements - recursive rule:
+list {X}{Y}A consists of even elemens [{X}B] and odd elements [{Y}C] :- 
+	list A  consists of even elemens [B] and odd elements [C] ..	
+
+	% Boundary conditions for 1-element and 0-element lists:
+list {X}* consists of even elemens [{X}*] and odd elements [*] .. 
+list * consists of even elemens [*] and odd elements [*] ..
+
+	% Clauses for merging sorted lists - recursive rules:
+result of merging lists [{K}A] and [{L}B] is list {K}W :- {K<L} ,, result of merging lists [A] and [{L}B] is list W ..
+result of merging lists [{K}A] and [{L}B] is list W :- {K = L} ,, result of merging lists [A] and [{L}B] is list W ..
+result of merging lists [{K}A] and [{L}B] is list {L}W :- result of merging lists [{K}A] and [B] is list W ..
+
+	% Boundary conditions for 0-element and 1-element lists:
+result of merging lists [*] and [A*] is list A* ..
+result of merging lists [A*] and [*] is list A* ..
+

@@ -1,0 +1,125 @@
+%knowledge _ about polygon concepts [a square is a rhombus]..
+
+resolve all goals..	
+resolve all goals:-	
+	knowledge _ about polygon hierarchy [a rectangle is a parallelogram],,
+	knowledge _ about polygon hierarchy [a rhombus is a quadrangle],,
+	[is the number of diagonals of a square less than five ?],,
+	knowledge _ about polygon hierarchy [a square is a quadrangle],, 
+	[is a square a quadrangle ?],,
+	[is a rhombus a quadrangle ?],,
+%	[is a square a rhombus ?],,
+	[is a rectangle a parallelogram ?]..
+
+[is a X a Y ?] :- knowledge No1 about polygon hierarchy [a X is a Y]..
+[is the number of Objects1 of a Polygon1 less than N ?] :- 	 
+	knowledge _ about polygon hierarchy [a Polygon1 is a Polygon2] ,,  
+	[the number of Objects1 of a Polygon2 is N1] ,,  
+	fact _ about numbers: [N1 is less than N] .. 
+
+knowledge 1 about polygons [a polygon consists of a number of sides]..
+knowledge 2 about polygons [two sides of a polygon may be either adjacent or nonadjacent]..
+knowledge 3 about polygons [two sides of a polygon may be either equal or unequal]..
+knowledge 4 about polygons [two nonadjacent sides of a polygon may be either parallel or nonparallel]..
+knowledge 5 about polygons [two adjacent sides of a polygon have just one common vertex]..
+knowledge 6 about polygons [two nonadjacent sides of a polygon have no common vertices]..
+knowledge 7 about polygons [the number of vertices of a polygon is equal to the number of its sides]..
+knowledge 8 about polygons [a diagonal of the polygon is the segment between two nonadjacent vertices of a polygon]..
+knowledge 9 about polygons [a polygon with four sides is a quadrangle]..
+knowledge 10 about polygons [a quadrangle has two pair of nonadjacent sides]..
+
+knowledge 11 about polygons [a quadrangle has just two diagonals]..
+numerical property 1 of a polygon [a quadrangle has just two diagonals] .. 
+
+knowledge 12 about polygons [the parallel sides of a parallelogram are equal]..
+knowledge 13 about polygons [a pentagon has just five diagonals]..
+knowledge 14 about polygons [a polygon consists of a number of sides]..
+knowledge 15 about polygons [a polygon may not have less than three sides]..
+
+definition 1 about polygons [a pentagon is a polygon with five sides]..
+definition 2 about polygons [a triangle is a polygon with three sides]..
+definition 3 about polygons [a trapezium is a quadrangle with two parallel sides]..
+
+definition 4 about polygons [a rhombus is a parallelogram with equal adjacent sides]..
+definition 5 about polygons [a square is a rectangle with equal adjacent sides]..
+definition 6 about polygons [a rectangle is a parallelogram with equal diagonals]..
+definition 7 about polygons [a parallelogram is a quadrangle with two pairs of parallel sides]..
+
+polygon attribute 1 [two pairs of parallel sides] ..
+polygon attribute 2 [equal adjacent sides] ..
+polygon attribute 3 [equal diagonals] ..
+polygon attribute 4 [five sides] ..
+polygon attribute 5 [two parallel sides] ..
+
+knowledge 1 about polygon concepts [a Square is a Rhombus] :- 
+	definition _ about polygons [a Square is a Rectangle with X] ,, 
+	knowledge _ about polygon hierarchy [a Rectangle is a Parallelogram] ,,
+	definition _ about polygons [a Rhombus is a Parallelogram with X]..
+
+knowledge 1 about polygon hierarchy [a Polygon1 is a Polygon2] :-	
+	definition _ about polygons [a Polygon1 is a Polygon2 with SomeAttribute] ,,
+	polygon attribute _ [SomeAttribute] ..
+
+knowledge 2 about polygon hierarchy [a Polygon1 is a Polygon3] :- 
+	knowledge _ about polygon hierarchy [a Polygon1 is a Polygon2] ,, 
+	knowledge _ about polygon hierarchy [a Polygon2 is a Polygon3].. 
+
+knowledge 3 about polygon hierarchy [a square is a rhombus] :- 
+	definition _ about polygons [a square is a rectangle with X] ,, 
+	knowledge _ about polygon hierarchy [a rectangle is a parallelogram] ,,
+	definition _ about polygons [a rhombus is a parallelogram with X]..
+
+
+
+
+[the number of Objects1 of a Polygon2 is N] :-	numerical property No1 of a polygon [a Polygon2 has just N Objects1] .. 
+fact 1 about numbers: [one is less than two].. 
+fact 2 about numbers: [two is less than three].. 
+fact 3 about numbers: [three is less than four].. 
+fact 4 about numbers: [four is less than five].. 
+fact 5 about numbers: [five is less than many].. 
+fact 6 about numbers: [N1 is less than N2] :- 	fact _ about numbers: [N1 is less than X] ,, fact _ about numbers: [X is less than N2].. 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Initial examples (kindly provided by S.S.Lavrov):
+
+%is a rhombus a quadrangle ?..		+
+%is a square a rhombus ?..		+
+%has a triangle any diagonal ?..	-- 
+%is the number of diagonals of a square less than five ?..	+
+
+%a polygon consists of a number of sides..
+%two sides of a polygon may be either adjacent or nonadjacent..
+%two sides of a polygon may be either equal or unequal..
+%two nonadjacent sides of a polygon may be either parallel or nonparallel..
+%two adjacent sides of a polygon have just one common vertex..
+%two nonadjacent sides of a polygon have no common vertices..
+%the number of vertices of a polygon is equal to the number of its sides..
+%a diagonal of the polygon is the segment between two nonadjacent vertices of a polygon..
+%a polygon with four sides is a quadrangle..
+%a quadrangle has two pair of nonadjacent sides..
+%a trapezium is a quadrangle with two parallel sides..
+%a parallelogram is a quadrangle with two pairs of parallel sides..
+%the parallel sides of a parallelogram are equal..
+%a quadrangle has just two diagonals..
+%a pentagon is a polygon with five sides..
+%a pentagon has just five diagonals..
+%a rectangle is a parallelogram with equal diagonals..
+%a rhombus is a parallelogram with equal adjacent sides..
+%a square is a rectangle with equal adjacent sides..
+%a triangle is a polygon with three sides..
+%a polygon may not have less than three sides..
+
+%one, two, three, four, five and many are numbers..
+%one is less than two..
+%two is less than three..
+%three is less than four..
+%four is less than five..
+%five is less than many..
+%X is equal to X..
+%if X is less than Y and Y is less than Z then X is less than Z..

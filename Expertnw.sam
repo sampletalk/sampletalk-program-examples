@@ -1,0 +1,24 @@
+% Same as EXPERTNN.SAM, with more expressive variable names.
+
+	% Possible goals (leave uncommented exactly one of them):
+%who is julia? Function..                      	
+%where is new york? in Place..
+%human Sombody is a son of maria and His_father..
+%human jack N is Relative of Somebody..
+%human Son 2 is a son of Y and X 1..
+what is on a table? X..
+
+	% Knowledge base as abstraction of dialog situations 
+	% (abstraction was made via capitalizing, i.e. transforming object names to variables):
+what is on Roof? Bird :- object Bird is situated on Roof..
+who is Socrates? Human :- human Socrates is a Human..
+where is Paris? in France :- object Paris is situated in France..
+
+  	% Factual knowledge:
+human joe is a son of maria and peter..         
+human julia is a daughter of maria and peter..
+human peter 2 is a son of maria and peter 1..
+human jack 2 is a son of julia and jack 1..
+object new york is situated in america..
+object st.petersburg is situated in russia..
+object a book is situated on a table..            

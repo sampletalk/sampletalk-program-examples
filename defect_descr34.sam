@@ -1,0 +1,180 @@
+%inference of [n[n[n[a large fragment] of n[pattern material]] ving[slightly covering] n[n[the main area] of n[the pattern]]]] is T L..
+
+
+
+%r[pattern area] --> T .. 
+%r[pattern covering pattern] --> T.. 	
+%r[pattern area covering pattern] --> T.. 	
+%r[pattern covering pattern area] --> T.. 	
+%r[pattern area covering pattern area] --> T.. 	
+%r[pattern is slightly disturbed] --> T.. 
+%r[large fragment covering pattern area] --> T.. 	
+%r[large fragment slightly covering pattern area] --> T.. 	
+%r[a large fragment slightly covering pattern area] --> T.. 	
+%r[a large fragment slightly covering the pattern area] --> T.. 	
+%r[a large pattern fragment slightly covering the area] --> T.. 	
+%r[a large pattern fragment slightly covering pattern area] --> T.. 	
+%r[a large pattern fragment slightly covering the underlying pattern area] --> T.. 	
+%r[a large pattern fragment slightly covering the underlying pattern area] --> T.. 	
+%r[a large fragment of pattern slightly covering the underlying pattern area] --> T.. 	
+%r[large fragment of pattern material slightly covering the underlying pattern area] --> T.. 	
+%r[a large fragment of pattern material slightly covering the underlying pattern area] --> T.. 	
+%r[a large fragment of pattern material slightly covering area of underlying pattern] --> T.. 	
+r[a large fragment of pattern material slightly covering the main area of the pattern] --> T.. 	
+%r[small clusters of pattern material slightly covering large area of metal lines] --> T..
+%r[metal clusters covering pattern where pattern touches another pattern area] --> T.. 	
+%r[bright red stain covering pattern where the pattern touches another pattern area] --> T.. 	
+%r[small bright stain with dark edges] --> T.. 
+%r[small dark stain with bright edges] --> T.. 
+%r[dark stains with bright edges] --> T.. 
+%r[pattern material particles cover the pattern] --> T.. 
+%r[particles which cover the pattern] --> T.. 
+%r[pattern material particles which cover the pattern] --> T.. 
+%r[pattern is visible # dark stains cover it near the border] --> T.. 
+%r[pattern is visible but covered with dark stains] --> T.. 
+%r[dark particles appear near pattern lines covering its surface] --> T.. 
+%r[small clusters of pattern material slightly covering area of metal lines] --> T.. 
+%r[particles of pattern material are distributed on the surface of the pattern] --> T.. 
+
+r[X] --> [Ts] :- 	undrl[# # X # #] --> [X1],, p[X1] --> [T],, 	undrl[# # Tss # #] --> [T],, inference of [Tss] is Ts..
+undrl[A X] --> [[A] Y] :- undrl[X] --> [Y]..
+undrl[A] --> [[A]]..
+
+p[A [L] X [R] B] --> [W1] :-	reduce [L] S[X] [R] ,,  undrl[Y] --> [X] ,,  p[A [L] [S[Y]] [R] B] --> [W1] ..       
+p[X] --> [X]..
+
+reduce [L]   S[[A] [B] [C] [D]]   [R]	:- m[L U],, m[A X] ,, m[B Y] ,,  m[C Z] ,, m[D T] ,, m[R V] ,, gram[_ U _]    S[X Y Z T]    [_ V _] ..
+reduce [L]   S[[A] [B] [C]]        [R]	:- m[L U],, m[A X] ,, m[B Y] ,,  m[C Z] ,, 	  m[R V] ,, gram[_ U _]    S[X Y Z]       [_ V _] ..
+reduce [L]   S[[A] [B]]             [R] 	:- m[L U],, m[A X] ,, m[B Y] ,, 	                m[R V] ,, gram[_ U _]    S[X Y]          [_ V _] ..
+
+inference of [ving[slightly covering]] 		is covering [ ]..
+inference of [n[the pattern]]  			is pattern [ ]..
+inference of [n[the main area]]  		is area [ ]..
+inference of [n[pattern material]]  		is pattern [ ]..
+inference of [n[a large fragment]] 		is fragment [large_defect]..
+inference of [n[fragment of pattern]]		is pattern [ ]..
+inference of [n[area of pattern]]		is pattern [ ]..
+inference of [n[pattern covering pattern]]	is pattern [pattern_on_pattern]..
+inference of [S[A B C]] is X [A1i B1i C1i Xi] :- 
+	inference of [A] is A1 [A1i],, inference of [B] is B1 [B1i],, inference of [C] is C1 [C1i],, 
+	~~expressions [S[A B C]] and [S[A1 B1 C1]] are similar,,
+	inference of [S[A1 B1 C1]] is X [Xi]..
+inference of [S[A B]]    is X [A1i B1i Xi] :- 
+	inference of [A] is A1 [A1i],, inference of [B] is B1 [B1i],,
+	~~expressions [S[A B]] and [S[A1 B1]] are similar,,
+	inference of [S[A1 B1]] is X [Xi]..
+inference of [X] is X [ ]..
+expressions [A] and [A] are similar..
+
+
+
+
+
+
+
+gram[# # #] 		n[n which v n]	[# #  #]..
+gram[# # #] 		n[n prep n]	[# # ad ving be #]..
+gram[# ving #]		n[n prep n] 	[# # #]..
+gram[# # #] 		n[det ving n n]	[# # ad ving #]..
+gram[# ving #]		n[det ving n n] 	[# # #]..
+gram[# # #] 		n[det ving n]	[# # ad ving #]..
+gram[# ving prep #]		n[det ving n] 	[# # #]..
+gram[# # #] 		n[det aj n n]	[# # ad ving #]..
+gram[# ving #]		n[det aj n n] 	[# # #]..
+gram[# # #] 		n[det aj n]	[# # ad ving prep #]..
+gram[# ving v #]		n[det aj n] 	[# # prep #]..
+gram[# # #] 		n[det n n]		[## ad ving #]..
+gram[# ving v #]		n[det n n] 	[# # #]..
+gram[# # where #] 		n[det n]		[# # ad ving v #]..
+gram[# v ving prep #]	n[det n] 		[# # prep #]..
+gram[# # prep #] 		n[aj n]		[# # ad ving v prep #]..
+gram[# ving #]		n[aj n] 		[# # prep #]..
+gram[# # #] 		n[aj aj n]		[# # ad ving prep #]..
+gram[# ving #]		n[aj aj n] 		[# # prep #]..
+gram[# # #] 		n[ving n n]	[# # ad ving #]..
+gram[# ving #]		n[ving n n] 	[# # #]..
+gram[# # #] 		n[ving n]		[# # ad ving #]..
+gram[# ving prep #]		n[ving n] 		[# # #]..
+gram[# # prep #] 		n[n n n]		[# # ad ving v be which #]..
+gram[# ving #]		n[n n n] 		[# # #]..
+gram[# # prep #] 		n[n n]		[# # ad ving v be #]..
+gram[# ving #]		n[n n] 		[# # #]..
+gram[# # #]	 	n[n ving n]	[# # where #]..
+gram[# n #]	 	ving[ad ving]	[# n #]..
+gram[# be #]	 	ved[ad ved]	[# # #]..
+gram[# # where #]	 	s[n v n]		[# # #]..
+gram[# # where #]	 	s[n be ved]	[# # #]..
+gram[# # where #]	 	s[n be aj]		[# # conj #]..
+
+
+
+m[#		#]..
+m[n[_]		n]..
+m[ving[_]		ving]..
+m[ved[_]		ved]..
+m[v[_]		v]..
+m[s[_]		s]..
+
+m[a		det]..
+m[another	det]..
+m[appear		v]..
+m[area		n]..
+m[are		be]..
+m[areas		n]..
+m[blob		n]..
+m[blobs		n]..
+m[border		n]..
+m[bright		aj]..
+m[but		conj]..
+m[covering	ving]..
+m[cover		v]..
+m[covers		v]..
+m[cluster		n]..
+m[clusters	n]..
+m[dark		aj]..
+m[distributed	ved]..
+m[disturbed	ved]..
+m[disturbing	ving]..
+m[edge		n]..
+m[edges		n]..
+m[fragment	n]..
+m[fragments	n]..
+m[is		be]..
+m[its		its]..
+m[large		aj]..
+m[line		n]..
+m[lines		n]..
+m[main		aj]..
+m[material	n]..
+m[materials	n]..
+m[metal		n]..
+m[metalic	aj]..
+m[near		prep]..
+m[of		prep]..
+m[on		prep]..
+m[other		aj]..
+m[particles	n]..
+m[pattern		n]..
+m[patterns	n]..
+m[red		aj]..
+m[slightly	ad]..
+m[small		aj]..
+m[stain		n]..
+m[stains		n]..
+m[substantially	ad]..
+m[surface	n]..
+m[the		det]..
+m[that		which]..
+m[touch		v]..
+m[touches	v]..
+m[touching	ving]..
+m[underlying	ving]..
+m[visible		aj]..
+m[where		where]..
+m[which		which]..
+m[with		prep]..
+
+
+
+
+

@@ -1,0 +1,17 @@
+	% Bubble sort of a number list. 
+	% This is a variant of the program SORT.SAM.
+	% In this program, the order of numbers is tested
+	% by the Prolog predicate <. See also program SORTMERG.SAM.
+
+	% Goal
+sort of [begin {2.7} {1024} {9.8} {3.14} end] is W..
+
+	% Program:
+sort of [A {M} {N} B] is W :- {M<N} ,, sort of [A {N} {M} B] is W..
+sort of [A] is A..
+
+
+   
+
+
+

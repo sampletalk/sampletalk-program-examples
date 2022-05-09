@@ -1,0 +1,22 @@
+	% Bubble sort of numbers. Probably, this is the shortest possible representation of a sort 
+	% algorithm for universal programming languages. In this program, the order of numbers is tested
+	% by Prolog predicate <. See also programs SORT1.SAM, SORTMERGE.SAM.
+
+	% Goal (variable W stands for the sorted list):
+[*{2.7}{5}{122}{4}{1024}{9.8}{3.14}*] => W..	
+
+	% Program
+[A{M}{N}B] => W :- {M<N} ,, [A{N}{M}B] => W..
+[A] => A..
+
+
+   
+
+
+
+
+
+
+
+
+

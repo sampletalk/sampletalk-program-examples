@@ -1,0 +1,28 @@
+	% Inverse Logic Formula Transformation (elimination of parentheses and distribution of quantifiers). 
+	% The program is the same as LOGICTR1.SAM, but its goal is "opposite", i.e. causes
+	% backward formula transformation:
+
+	% Goal (variable W stands for the resulting formula):
+W --> ( for-all x 0 ) ( for-all x 1 0 ) ( [a ( x 0 , y )] or [ b ( x 1 0 , t )] )..	
+
+	% Program:
+( Q X ) [F] or ( Q X ) [H] --> ( Q X ) ( Q Z ) ( [F] or [G] ) :-
+   	[X is variable] ,, [Z is variable] ,, ~~(F contains Z) ,,	( Z / X ) [ H ] = [ G ] .. 
+
+	% Recursive definition of logic variables:
+[x 0 is variable] ..
+[X 1 0 is variable] :- [X 0 is variable] ..
+
+	% Explanation of what is "contains":
+(_ X _ contains X) ..	
+
+	% Implementation of replacing variables in a logic formula
+( Y / X ) [ A X M ] = [ A Y N ] :- ( Y / X ) [ M ] = [ N ] ..
+( Y / X ) [ A ] = [ A ] :- ~~(A contains X)..
+
+	% All these formal and informal designations work immediately as the algorithm elements.
+
+
+
+
+

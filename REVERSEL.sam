@@ -1,0 +1,16 @@
+	% Inversion of a list of words (separated by "/"). Compare this program to program 
+	% REVERSE1.SAM for word inversion. The only essential differences are two symbols 
+	% / in the recursive rule, but the performance is different.
+
+	% Goal:
+reverse of the list [a b c , d e f , g h l c , d] is [X]..
+
+	% Program:
+reverse of the list [A , M] is [N , A] :- reverse of the list [M] is [N]..
+reverse of the list [A] is [A]..
+
+
+
+
+
+

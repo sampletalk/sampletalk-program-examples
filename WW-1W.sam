@@ -1,0 +1,22 @@
+	% Generation of words of the type  W W-1 W (see the comment below),
+	% which is impossible for CF grammars
+	% (use Find All Decisions and Stop Between Output Lines options).
+
+[A][B][A]..
+[X][X][X] :- letter [X]..
+[A X][X B][A X] :- [A][B][A] ,, letter [X]..
+letter [a]..
+letter [b]..
+
+
+	% The program generates words [a][a][a], [b][b][b], [aa][aa][aa],
+	% [ab][ba][ab], [abab][baba][abab] etc. , where the second word is inversion of the
+	%first and third words whicn\h are equal.
+
+
+
+
+
+
+
+

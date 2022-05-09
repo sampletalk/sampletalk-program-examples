@@ -1,0 +1,36 @@
+%  XDIFF: This is a program for symbolic differentiation of
+%  expressions which contain elementary functions 
+%  (use the Find Only One Decision option, it is default after 
+%  loading SAMPLE).
+%
+%  Try the Goal and other goals, such as:
+%  d[[a*x]+{3.14}]/dx=W..
+%  d[[[a*x]+{3.14}]^{5}]/dx=W..
+%  d[{2}*[cos[x]+sin[x]]]/dx=W..
+%  d[[cos[x]]^{2}+[sin[x]]^{2}]/dx=W..
+%  d[[{25}+sin[x]]*[sin[x]+cos[x]]^{2.555}]/dx=W..
+
+d[cos[x]+sin[x]]/dx=W..	    				% Goal
+
+d[[F]]/dX=A	      		:-d[F]/dX=A..		% Program
+d[X]/dX={1}..
+d[-[F]]/dX=[-[A]]	       		:-d[F]/dX=A..
+d[F+G]/dX=[A+B]		   	:-d[F]/dX=A,,d[G]/dX=B..
+d[F-G]/dX=[A-B]		       	:-d[F]/dX=A,,d[G]/dX=B..
+d[F*G]/dX=[[A]*[G]+[F]*[B]]    		:-d[F]/dX=A,,d[G]/dX=B..
+d[F/G]/dX=[[F]*[B]-[G]*[A]]/[[G]^{2}]	:-d[F]/dX=A,,d[G]/dX=B..
+d[F^{N}]/dX=[A]*{N}*[F^[{N-1}]]	:-d[F]/dX=A..
+d[ln[F]]/dX=[A]/[F]	    		:-d[F]/dX=A..
+d[sin[F]]/dX=cos[F]*[A]	       	:-d[F]/dX=A..
+d[cos[F]]/dX=[-sin[F]]*[A]     		:-d[F]/dX=A..
+d[tan[F]]/dX=[A]*sec[F]^{2}    		:-d[F]/dX=A..
+d[F]/dX={0}		       	:-~~[*F*] contains X.. % negation
+
+[_[F]_] contains X	       		:-[F] contains X..
+[_F_] contains X			:-[F] contains X..
+[_X_] contains X.. 
+
+
+% Output:    d[cos[x]+sin[x]]/dx=[[-sin[x]]*[{1}]+cos[x]*[{1}]]..
+
+

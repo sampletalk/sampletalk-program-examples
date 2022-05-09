@@ -1,0 +1,25 @@
+	% Bubble sort of a digit list. 
+	% In this program, the order of digits is tested just by 
+	% finding them in the ascending digit list.
+
+	% Goal
+sort of begin [2] [4] [5] [9] [3] [7] [4] [3] [5] end is [W]..
+
+	% Program
+sort of A [M] [N] B is [W]:-
+	[M]<[N],,
+	sort of A [N] [M] B is [W]..
+sort of A is [A]..
+
+[M]<[N] :- digits [_ M _ N _].. 
+digits [# 0 # 1 # 2 # 3 # 4 # 5 # 6 # 7 # 8 # 9 #]..    
+
+
+
+%[2,4,3] => [2,3,4]
+%[5,2,3,7,9] =>[2 3 5 7 9]
+%[2 < 3] =>t
+%[4 < 8] =>t
+%[digits 0 1 2 3 4 5 6 7 8 9]
+
+

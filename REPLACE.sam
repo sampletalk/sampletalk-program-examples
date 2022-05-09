@@ -1,0 +1,16 @@
+	% Change of Variables in an Expression. The goal for this program have the form 
+	% [word2|word1](source expression)]=[resulting expression].
+	% The program replaces all occurrences of word1 in the source expression by word2. 
+	% See application of these clauses in files LOGICTR1.SAM, LOGICTR2.SAM, 
+	% LOGICTR3.SAM.
+
+	% Goal (variable W stands for the resulting expression):
+[ y*2 | x7 ] ( sin ( 2 * x7 ) + cos ( 4 * x7 ) )  = [ W ] .. 
+
+	% Program:
+[ Y | X ] A X M = [ A Y N ] :- [ Y | X ] M = [ N ] ..
+[ Y | X ] A = [ A ] ..
+
+
+
+

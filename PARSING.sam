@@ -1,0 +1,52 @@
+	% Morphologic and syntax analysis of a sentence. This program takes an English sentence
+	% and produces a tree representing grammar analysis of this sentence. The output represents 
+	% parsing tree structure along with morphological tags. For developing the morphologic 
+	% analysis, see program MORPHOLOGY.SAM.
+	% (Here we don't consider problems of ambiguity in NL morphology and parsing)
+
+	% Goal (variable T stands for the parsing tree):
+tree for sentence [this large apple is tasty since it has ripened] is T.. 	
+
+	% Rules:
+tree for sentence [X] is T:- 
+	morphologic tagging for sentence [X] is Y,, 
+	tree for tagged sentence [# Y #] is T..
+
+	% Morphologic tagging. Recursive rule:
+morphologic tagging for sentence [A X] is T[A] Y :- 
+	word A has morphologic tag T,, 
+	morphologic tagging for sentence [X] is Y..	    
+
+	% Boundary condition for last 2 words:
+morphologic tagging for sentence [A B] is T1[A] T2[B] :- 
+	word A has morphologic tag T1,, 
+	word B has morphologic tag  T2..
+
+	% Building the tree.	Recursive rule:
+tree for tagged sentence [A X B] is W :- 
+	grammar rule: T[X] is a grammar pattern ,, 
+	tree for tagged sentence [A T[X] B] is W..       
+	% Boundary condition:
+tree for tagged sentence [# X #] is X ..
+
+	% Gramamar patterns:
+grammar rule: 	noun[determiner[_] aj[_] noun[_]] 		is a grammar pattern..	
+grammar rule: 	noun[determiner[_] noun[_]] 			is a grammar pattern..		    
+grammar rule: 	noun[aj[_] noun[_]] 				is a grammar pattern..		    
+grammar rule: 	sent[noun[_] past_verb[_]]		 	is a grammar pattern..		    
+grammar rule: 	sent[noun[_] be[_] aj[_]]			is a grammar pattern..		
+grammar rule: 	sent[pronoun[_] have_sg[_] past_verb[_]] 	is a grammar pattern..
+grammar rule: 	sent[sent[_] logic[_] sent[_]]			is a grammar pattern..
+
+	% Morphologic dictionary:
+word 	this  	has morphologic tag	determiner..
+word 	large 	has morphologic tag    	aj..
+word 	apple 	has morphologic tag    	noun..
+word 	is 	has morphologic tag    	be..
+word 	tasty 	has morphologic tag    	aj..
+word 	since 	has morphologic tag    	logic..
+word 	it 	has morphologic tag    	pronoun..
+word 	has 	has morphologic tag    	have_sg..
+word 	ripened 	has morphologic tag	past_verb..
+
+	% Have you noticed that we are PROGRAMMING in English, not in C++ or Lex& Yacc?!

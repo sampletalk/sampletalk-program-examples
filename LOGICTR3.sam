@@ -1,0 +1,30 @@
+	% Logic Formula Transformation. In this version of program LOGICTR1.SAM, we have
+	% changed the informal syntax and added rule identification (variable R in the goal). 
+	% Try these programs using the option for finding all decisions. Note that no previous 
+	% parsing of the goal is required. All scanning, parsing, designations and semantics
+	% is defined just here.
+
+	% Goal:
+according to the rule R, the result of shifting quantifiers in formula ( for-all x 0 ) [a ( x 0 , y )] or ( for-all x 0 ) [b ( x 0 , t )] is formula W..
+
+	% Program. Main clause:
+according to the rule 2a from chapter 5, the result of shifting quantifiers in formula ( Q X ) [F] or ( Q X ) [H] is formula ( Q X ) ( Q Z ) ( [F] or [G] ) :- 
+	X is notation for variables ,, 
+	Z is notation for variables ,, 
+	formula F does not contain variable Z ,, 
+	the result of replacing X by Z in formula [ H ] is formula [ G ] ..  			
+
+	% Definition of the variables for the  logic calculus:
+x 0 is notation for variables ..
+X 1 0 is notation for variables :- X 0 is notation for variables ..
+
+	% Strighforward explanation what is "does not contain" and "contains" :
+formula F does not contain variable Z :- ~~word F contains word Z ..
+word _ X _ contains word X ..
+
+	% Definition of the algorithm for replacing variables in logic formulae:
+the result of replacing X by Y in formula [ A X M ] is formula [ A Y N ] :- 
+	the result of replacing X by Y in formula [ M ] is formula [ N ] ..	
+the result of replacing X by Y in formula [ A ] is formula [ A ] :-
+	formula A does not contain variable X..
+

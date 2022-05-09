@@ -1,0 +1,9 @@
+
+Resolving goal: 
+
+analysis of sentence [a large fragment of pattern material somewhat covering the main area of the pattern] is: _
+
+
+analysis of sentence [a large fragment of pattern material somewhat covering the main area of the pattern] is: parsing tree = n[n[n[a large fragment] of n[pattern material]] ving[somewhat covering] n[n[the main area] of n[the pattern]]]; inference is: object = pattern; predicates are: [large_defect                         somewhat         pattern_on_pattern].
+
+ Yes. 

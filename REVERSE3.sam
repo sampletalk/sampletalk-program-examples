@@ -1,0 +1,21 @@
+	% Word inversion: more efficient variant than REVERSE2.SAM for large lists
+
+	% Goal:
+[a b c d e f g h 0 1 2 3 4 5 6 7 8 9 a b c d e f g h 0 1 2 3 4 5 6 7 8 9 a b c d e f g h 0 1 2 3 4 5 6 7 8 9 a b c d e f g h ]->[X]..			
+
+	% Program:
+[A B C D E F G H X]->[Y H G F E D C B A] :- [X]->[Y]..
+[A X]->[Y A] :- [X]->[Y]..				
+[A]->[A]..
+
+
+
+
+
+
+
+
+
+
+
+

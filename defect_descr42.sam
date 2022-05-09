@@ -1,0 +1,215 @@
+%analysis of sentence [covers covers covers covers covers covers covers covers covers covers covers covers covers covers covers] is: T .. 
+%analysis of sentence [pattern area] is: T .. 
+%analysis of sentence [pattern covering pattern] is: T.. 	
+	%analysis of sentence [pattern area covering pattern] is: T.. 	
+%analysis of sentence [pattern covering pattern area] is: T.. 	
+%analysis of sentence [pattern area covering pattern area] is: T.. 	
+%analysis of sentence [pattern is slightly disturbed] is: T.. 
+%analysis of sentence [large fragment covering pattern area] is: T.. 	
+%analysis of sentence [large fragment slightly covering pattern area] is: T.. 	
+%analysis of sentence [a large fragment slightly covering pattern area] is: T.. 	
+%analysis of sentence [a large fragment slightly covering the pattern area] is: T.. 	
+%analysis of sentence [a large pattern fragment slightly covering the area] is: T.. 	
+%analysis of sentence [a large pattern fragment slightly covering pattern area] is: T.. 	
+	%analysis of sentence [a large pattern fragment slightly covering the underlying pattern area] is: T.. 	
+	%analysis of sentence [a large fragment of pattern slightly covering the underlying pattern area] is: T.. 	
+%analysis of sentence [large fragment of pattern material slightly covering the underlying pattern area] is: T.. 	
+%analysis of sentence [a large fragment of pattern material slightly covering the underlying pattern area] is: T.. 	
+%analysis of sentence [a large fragment of pattern material slightly covering area of underlying pattern] is: T.. 	
+analysis of sentence [a large fragment of pattern material somewhat covering the main area of the pattern] is: T.. 	
+		analysis of sentence [small clusters of pattern material slightly covering large area of metal lines] is: T..
+		%analysis of sentence [metal clusters covering pattern where pattern touches another pattern area] is: T.. 	
+		%analysis of sentence [bright red stain covering pattern where the pattern touches another pattern area] is: T.. 	
+	%analysis of sentence [small red stain with green edges] is: T.. 
+	%analysis of sentence [small green stain with red edges] is: T.. 
+	%analysis of sentence [dark stains with bright edges] is: T.. 
+	%analysis of sentence [pattern material particles cover the pattern] is: T.. 
+	%analysis of sentence [particles which cover the pattern] is: T.. 
+	%analysis of sentence [pattern material particles which cover the pattern] is: T.. 
+		%analysis of sentence [pattern is visible . dark stains cover it near the border] is: T.. 
+		%analysis of sentence [pattern is visible but covered with dark stains] is: T.. 
+		%analysis of sentence [dark particles appear near pattern lines covering its surface] is: T.. 
+		%analysis of sentence [small clusters of pattern material slightly covering area of metal lines] is: T.. 
+%analysis of sentence [particles of pattern material are distributed on the surface of the pattern] is: T.. 
+
+analysis of sentence [Sentence] is: parsing tree = Tree; inference is: Inference. :-
+ 	underlining of elements in [# # Sentence # #] gives [SentenceUnderlined],, 
+	parsing tree for [SentenceUnderlined] is [[#] [#] Tree [#] [#]],,
+	inference from Tree is Inference..
+
+underlining of elements in [Word Rest] gives [[Word] RestU] :- underlining of elements in [Rest] gives [RestU]..
+underlining of elements in [Word] gives [[Word]]..
+
+parsing tree for [LeftSkippedWords [LeftContext] X [RightContext] RightSkippedWords] is [W1] :-	
+	grammar reduction [LeftContext] Tag[X] [RightContext],,  
+	underlining of elements in [Y] gives [X],,  
+	parsing tree for [LeftSkippedWords [LeftContext] [Tag[Y]] [RightContext] RightSkippedWords] is [W1] ..       
+parsing tree for [X] is [X]..
+
+grammar reduction  [LeftContext]   Tag[[A] [B] [C] [D]]   [RightContext] :- 
+	LeftContext     has morphologic tag U,, 
+	A 	       has morphologic tag Atag,, 
+	B 	       has morphologic tag Btag,,  
+	C	       has morphologic tag Ctag,, 
+	D	       has morphologic tag Dtag,, 	
+	RightContext  has morphologic tag V,, 
+	grammar_rule [_ U _]    Tag[Atag Btag Ctag Dtag]    [_ V _] ..
+grammar reduction  [LeftContext]   Tag[[A] [B] [C]]   [RightContext] :- 
+	LeftContext     has morphologic tag U,, 
+	A 	       has morphologic tag Atag,, 
+	B 	       has morphologic tag Btag,,  
+	C	       has morphologic tag Ctag,, 
+	RightContext  has morphologic tag V,, 
+	grammar_rule [_ U _]    Tag[Atag Btag Ctag]    [_ V _] ..
+grammar reduction  [LeftContext]   Tag[[A] [B]]   [RightContext] :- 
+	LeftContext     has morphologic tag U,, 
+	A 	       has morphologic tag Atag,, 
+	B 	       has morphologic tag Btag,,  
+	RightContext  has morphologic tag V,, 
+	grammar_rule [_ U _]    Tag[Atag Btag]    [_ V _] ..
+inference from [n[small bright N]] 		is object = N; predicates are: [has_bright_area and not(large_defect)] :- N has morphologic tag n..
+inference from [ving[V]]			is object = V; predicates are: [*] :- V has morphologic tag ving..
+inference from [ving[FuzzyAdv V]] 		is object = ving[V]; predicates are: [FuzzyAdv] :- FuzzyAdv has morphologic tag ad..
+inference from [ved[FuzzyAdv disturbed]]	is object = disturbed; predicates are: [FuzzyAdv] :- FuzzyAdv has morphologic tag ad..
+inference from [n[the N]] 			is object = N; predicates are: [*] :- N has morphologic tag n..
+inference from [n[the main N]]  		is object = N; predicates are: [*] :- N has morphologic tag n..
+inference from [n[pattern N]] 			is object = pattern; predicates are: [*]:-N has morphologic tag n..
+inference from [n[the pattern N]] 		is object = pattern; predicates are: [*]:-N has morphologic tag n..
+inference from [n[large N]]  			is object = N; predicates are: [large_defect]:-N has morphologic tag n..
+inference from [n[a large N]] 			is object = N; predicates are: [large_defect]:-N has morphologic tag n..
+inference from [n[metal lines]]  		is object = pattern; predicates are: [*]..
+inference from [n[the underlying pattern area]]  	is object = pattern; predicates are: [*]..
+inference from [n[underlying pattern]]  		is object = pattern; predicates are: [*]..
+inference from [n[small clusters]] 		is object = clusters; predicates are: [scattered]..
+inference from [n[X of pattern]] 		is object = pattern; predicates are: [*]..
+inference from [n[a large pattern fragment]]	is object = pattern; predicates are: [*]..
+inference from [n[fragment of N]]		is object = N; predicates are: [*]:-N has morphologic tag n..
+inference from [n[N of pattern]]		is object = pattern; predicates are: [*]:-N has morphologic tag n..
+inference from [n[pattern covering pattern]]	is object = pattern; predicates are: [pattern_covers_pattern]..
+inference from [n[X covering pattern]]		is object = pattern; predicates are: [on_pattern]..
+inference from [s[pattern is disturbed]]		is object = s[pattern is disturbed]; predicates are: [on_pattern]..
+inference from [S[A B]]    is object = X; predicates are: [A1i B1i Xi] :- 
+	inference from [A] is object = A1; predicates are: [A1i],, 
+	inference from [B] is object = B1; predicates are: [B1i],,
+	~~expressions [S[A B]] and [S[A1 B1]] are similar,,
+	inference from [S[A1 B1]] is object = X; predicates are: [Xi]..
+inference from [S[A B C]] is object = X; predicates are: [A1i B1i C1i Xi] :- 
+	inference from [A] is object = A1; predicates are: [A1i],, 
+	inference from [B] is object = B1; predicates are: [B1i],, 
+	inference from [C] is object = C1; predicates are: [C1i],, 
+	~~expressions [S[A B C]] and [S[A1 B1 C1]] are similar,,
+	inference from [S[A1 B1 C1]] is object = X; predicates are: [Xi]..
+inference from [S[A B C D]] is object = X; predicates are: [A1i B1i C1i D1i Xi] :- 
+	inference from [A] is object = A1; predicates are: [A1i],, 
+	inference from [B] is object = B1; predicates are: [B1i],, 
+	inference from [C] is object = C1; predicates are: [C1i],, 
+	inference from [D] is object = D1; predicates are: [D1i],, 
+	~~expressions [S[A B C D]] and [S[A1 B1 C1 D1]] are similar,,
+	inference from [S[A1 B1 C1]] is object = X; predicates are: [Xi]..
+inference from [X] is object = X; predicates are: [&]..
+
+expressions [A] and [A] are similar..
+
+grammar_rule [# # #] 		n[n which v n]	[# # #]..
+grammar_rule [# # #] 		n[n prep n]	[# # ad ving be #]..
+grammar_rule [# ving #]		n[n prep n] 	[# # #]..
+grammar_rule [# # #] 		n[det ving n n]	[# # ad ving #]..
+grammar_rule [# ving #]		n[det ving n n] 	[# # #]..
+grammar_rule [# # #] 		n[det ving n]	[# # ad ving #]..
+grammar_rule [# ving prep #]		n[det ving n] 	[# # #]..
+grammar_rule [# # #] 		n[det aj n n]	[# # ad ving #]..
+grammar_rule [# ving #]		n[det aj n n] 	[# # #]..
+grammar_rule [# # #] 		n[det aj n]	[# # ad ving prep #]..
+grammar_rule [# ving v #]		n[det aj n] 	[# # prep #]..
+grammar_rule [# # #] 		n[det n n]		[## ad ving #]..
+grammar_rule [# ving v #]		n[det n n] 	[# # #]..
+grammar_rule [# # where #] 		n[det n]		[# # ad ving v #]..
+grammar_rule [# v ving prep #]	n[det n] 		[# # prep #]..
+grammar_rule [# # prep #] 		n[aj n]		[# # ad ving v prep #]..
+grammar_rule [# ving #]		n[aj n] 		[# # prep #]..
+grammar_rule [# # #] 		n[aj aj n]		[# # ad ving prep #]..
+grammar_rule [# ving #]		n[aj aj n] 		[# # prep #]..
+grammar_rule [# # #] 		n[ving n n]	[# # ad ving #]..
+grammar_rule [# ving #]		n[ving n n] 	[# # #]..
+grammar_rule [# # #] 		n[ving n]		[# # ad ving #]..
+grammar_rule [# ving prep #]		n[ving n] 		[# # #]..
+grammar_rule [# # prep #] 		n[n n n]		[# # ad ving v be which #]..
+grammar_rule [# ving #]		n[n n n] 		[# # #]..
+grammar_rule [# # prep #] 		n[n n]		[# # ad ving v be #]..
+grammar_rule [# ving #]		n[n n] 		[# # #]..
+grammar_rule [# # #]	 	n[n ving n]	[# # where #]..
+grammar_rule [# n #]	 	ving[ad ving]	[# n #]..
+grammar_rule [# be #]	 	ved[ad ved]	[# # #]..
+grammar_rule [# # where #]	 	s[n v n]		[# # #]..
+grammar_rule [# # where #]	 	s[n be ved]	[# # #]..
+grammar_rule [# # where #]	 	s[n be aj]		[# # conj #]..
+
+
+
+
+#	 	has morphologic  tag 	# ..
+n[_]	 	has morphologic  tag 	n..
+ving[_]	 	has morphologic  tag 	ving..
+ved[_]	 	has morphologic  tag 	ved..
+v[_]	 	has morphologic  tag 	v..
+s[_]		has morphologic  tag 	s..
+a		has morphologic  tag 	det..
+another		has morphologic  tag 	det..
+appear	 	has morphologic  tag 	v..
+area		has morphologic  tag 	n..
+are		has morphologic  tag 	be..
+areas		has morphologic  tag 	n..
+blob		has morphologic  tag 	n..
+blobs		has morphologic  tag 	n..
+border		has morphologic  tag 	n..
+bright		has morphologic  tag 	aj..
+but		has morphologic  tag 	conj..
+covering		has morphologic  tag 	ving..
+cover		has morphologic  tag 	v..
+covers		has morphologic  tag 	v..
+cluster		has morphologic  tag 	n..
+clusters		has morphologic  tag 	aj..
+distributed	has morphologic  tag 	ved..
+disturbed		has morphologic  tag 	ved..
+disturbing 	has morphologic  tag 	ving..
+edge		has morphologic  tag 	n..
+edges	 	has morphologic  tag 	n..
+fragment		has morphologic  tag 	n..
+fragments	has morphologic  tag 	n..
+green		has morphologic  tag 	aj..
+is		has morphologic  tag 	be..
+its		has morphologic  tag 	its..
+large		has morphologic  tag 	aj..
+line		has morphologic  tag 	n..
+lines		has morphologic  tag 	n..
+main		has morphologic  tag 	aj..
+material		has morphologic  tag 	n..
+materials		has morphologic  tag 	n..
+metal		has morphologic  tag 	n..
+metalic		has morphologic  tag 	aj..
+near		has morphologic  tag 	prep..
+of		has morphologic  tag 	prep..
+on		has morphologic  tag 	prep..
+other		has morphologic  tag 	aj..
+particles		has morphologic  tag 	n..
+pattern		has morphologic  tag 	n..
+patterns		has morphologic  tag 	n..
+red		has morphologic  tag 	aj..
+slightly		has morphologic  tag 	ad..
+small		has morphologic  tag 	aj..
+somewhat	has morphologic  tag 	ad..
+stain		has morphologic  tag 	n..
+stains		has morphologic  tag 	n..
+substantially	has morphologic  tag 	ad..
+surface		has morphologic  tag 	n..
+the		has morphologic  tag 	det..
+that		has morphologic  tag 	which..
+touch		has morphologic  tag 	v..
+touches	 	has morphologic  tag 	v..
+touching	 	has morphologic  tag 	ving..
+underlying	has morphologic  tag 	ving..
+visible		has morphologic  tag 	aj..
+where		has morphologic  tag 	where..
+which		has morphologic  tag 	which..
+with		has morphologic  tag 	prep..
+

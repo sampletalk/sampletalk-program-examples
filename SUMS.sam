@@ -1,0 +1,19 @@
+	% This program prints all possible sums of pairs of digits 1,2,3.
+	% Use the option for finding all decisions.
+	% Calculation is made by incorporating Prolog variables and predicates.
+
+	% Goal
+{A} is sum of {B} and {C}..
+
+	% Program
+{A} is sum of {X} and {Y} :- {X} is digit ,, {Y} is digit ,, {A is X+Y} ..
+
+{1} is digit..
+{2} is digit..
+{3} is digit..
+
+
+
+
+
+

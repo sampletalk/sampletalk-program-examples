@@ -1,0 +1,12 @@
+actions of reto? A..
+
+[reto] is a [man]..
+[man] is a [human]..
+[human] can [walk]..
+
+actions of X? A :- [X] can [A]..
+
+[X] can [A] 	:- [X] is a [Y] ,, [Y] can [A]..
+[X] is a [Y]	:- [X] is a [Z] ,, [Z] is a [Y]..
+
+

@@ -1,0 +1,29 @@
+	% Parts Inventory (SAMPLE version of classic program by Clocksin & Mellish): 
+	% Using a description of a bike, this program produces list of all its basic parts. 
+	% See another, more short version of this program (program PARTSIN2.SAM).
+
+	% Goal:
+parts of [bike] are L..	
+
+	% Knowledgebase:
+rim is basic part..
+rearframe is basic part..
+gears is basic part..
+nut is basic part..
+spoke is basic part..
+handles is basic part..
+bolt is basic part..
+fork is basic part..
+bike contains [wheel] [wheel] [frame]..
+wheel contains [spoke] [rim] [hub]..
+frame contains [rearframe] [frontframe]..
+frontframe contains [fork] [handles]..
+hub contains [gears] [axle]..
+axle contains [bolt] [nut]..
+
+parts of [X] are X :- X is basic part..
+parts of [X] are P :- X contains S ,, parts of list [S] are P..
+parts of list [P T] are H G :- parts of P are H ,, parts of list [T] are G..
+parts of list [[T]] are G :- parts of [T] are G..
+
+

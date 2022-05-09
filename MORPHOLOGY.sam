@@ -1,0 +1,108 @@
+	% Morphologic analysis of English word forms.
+	% This program produces morphologic analyses for regular English word forms (represented in the 
+	% dictionary below) and demonstrates possibility of creating applications "from scratch" rather than 
+	% represents a completed morphologic analyzer. One of the ways to develop this program consists in 
+	% forming a good dictionary. In the same way, we can add semantic information like "entity", 
+	% "living being", superlative-comparative adjectives, etc.
+	% This is real extraction of an algorithm from field data. I took the word "queried", 
+	% generalized it into "Wied", then made "Wy" from "query", and got the 1-st clause.
+	% All the rest was made in the same way. No arrays, no formal grammars, no loops.
+	% Use compiler option for finding all decisions for the current goal.
+
+
+	% Goals (variable X stands for the result of the analysis). Leave uncommented exactly one of them:
+morphology of word [b a c k] is X..       
+%morphology of word [b a c k e d] is X..       
+%morphology of word [b a k e d] is X..       
+%morphology of word [q u e r i e d] is X..
+%morphology of word [q u e r i e s] is X..
+
+	% Program. Rules for morphologic analysis of regular word forms 
+	% (variable W stands for the word stems):
+morphology of word [W i e d] is past form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 	 	% e.g. query > queried
+morphology of word [W e d] is past form of verb "W e" :- 
+	W e has canonic morphologic tag verb..  		% e.g. bake > baked
+morphology of word [W e d] is past form of verb "W" :-
+	 W  has canonic morphologic tag verb..			% e.g. absorb > absorbed
+morphology of word [W i e s] is 2-sg form of verb "W y" :- 
+	W y has canonic morphologic tag verb..  		% e.g. query > queries
+morphology of word [W e s] is 2-sg form of verb "W e" :-
+	W e has canonic morphologic tag verb..  		% e.g. bake > bakes
+morphology of word [W s] is 2-sg form of verb "W" :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorbs
+morphology of word [W i e n] is past-p form of verb "W y" :- 
+	W y has canonic morphologic tag verb..  		
+morphology of word [W e n] is past-p form of verb "W e" :- 
+	W e has canonic morphologic tag verb..  		% e.g. bake > baken
+morphology of word [W e n] is past-p form of verb "W" :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorben
+morphology of word [W y i n g] is ing-form of verb "W y" :- 
+	W y has canonic morphologic tag verb..  		% e.g. query > querying
+morphology of word [W i n g] is ing-form of verb "W e" :- 
+	W e has canonic morphologic tag verb..  		% e.g. bake > baking
+morphology of word [W i n g] is ing-form of verb "W"  :- 
+	W has canonic morphologic tag verb..			% e.g. absorb > absorbing
+morphology of word [W] is canonic verb form "W" 	:- 
+	W has canonic morphologic tag verb..			% e.g. absorb, query
+morphology of word [W i e s] is plural form of noun "W y" :- 
+	W y has canonic morphologic tag singular noun..  		% e.g. query > queries
+morphology of word [W e s] is plural form of noun "W e" :- 
+	W e has canonic morphologic tag singular noun.. 		% e.g. bake > bakes
+morphology of word [W s] is plural form of noun "W" :- 
+	W has canonic morphologic tag singular noun..		% e.g. editor > editors
+morphology of word [W] is canonic singular form of noun "W" :- 
+	W has canonic morphologic tag singular noun.. 		 % e.g. bake, editor
+morphology of word [W] is adverb "W" :- 
+	W has canonic morphologic tag adverb..  		% e.g. back, easy
+morphology of word [W] is adjective "W" :- 
+	W has canonic morphologic tag adjective..  		% e.g. red
+
+	% Dictionary of canonic word forms:
+a b s o r b		has canonic morphologic tag 	verb..	
+a b s o r b e n c y 	has canonic morphologic tag 	singular noun..	
+a b s o r p t i o n	has canonic morphologic tag 	singular noun..
+a b s t a i n	has canonic morphologic tag 	verb..
+a b s t e m i o u s	has canonic morphologic tag 	adjective..
+a b s t e n t i o n	has canonic morphologic tag 	singular noun..
+a b s t i n e n c e	has canonic morphologic tag 	singular noun..
+a b s t i n e n t	has canonic morphologic tag 	adjective..
+a b s t r a c t	has canonic morphologic tag 	adjective..
+a b s t r a c t	has canonic morphologic tag 	singular noun..
+a b s t r a c t	has canonic morphologic tag 	verb..
+a b s t r u s e	has canonic morphologic tag 	adjective..
+a b s u r d		has canonic morphologic tag 	singular noun..
+a b s u r d i t y	has canonic morphologic tag 	singular noun..
+b a c k		has canonic morphologic tag 	singular noun..
+b a c k		has canonic morphologic tag 	adverb..
+b a c k		has canonic morphologic tag 	verb..
+b a c k a c h e	has canonic morphologic tag 	singular noun..
+b a c k b i t e	has canonic morphologic tag 	verb..
+b a c k b o a r d	has canonic morphologic tag 	singular noun..
+b a c k b o n e	has canonic morphologic tag 	singular noun..
+b a c k d r o p	has canonic morphologic tag 	singular noun..
+b a c k g r o u n d	has canonic morphologic tag 	singular noun..
+b a k e		has canonic morphologic tag 	singular noun..
+b a k e		has canonic morphologic tag 	verb..
+b a k e r		has canonic morphologic tag 	singular noun..
+b a k e r y		has canonic morphologic tag 	singular noun..
+c e r t i f i c a t e	has canonic morphologic tag 	singular noun..
+c e r t i f i c a t e	has canonic morphologic tag 	verb..
+c e r t i f i c a t i o n has canonic morphologic tag 	singular noun..
+c e r t i f y		has canonic morphologic tag 	verb..
+c e r t i t u d e	has canonic morphologic tag 	singular noun..
+c h a p t e r	has canonic morphologic tag 	singular noun..
+c h a s e 		has canonic morphologic tag 	singular noun..
+c h a s e		has canonic morphologic tag 	verb..
+e a s y		has canonic morphologic tag 	adjective..
+e a s y		has canonic morphologic tag 	adverb..
+e d i t		has canonic morphologic tag 	verb..
+e d i t i o n	has canonic morphologic tag 	singular noun..
+e d i t o r		has canonic morphologic tag 	singular noun..
+e d i t o r i a l	has canonic morphologic tag 	singular noun..	
+p r o v e		has canonic morphologic tag 	singular noun..
+p r o v e		has canonic morphologic tag 	verb..
+q u e r y		has canonic morphologic tag 	singular noun..
+q u e r y		has canonic morphologic tag 	verb..
+r e d		has canonic morphologic tag 	adjective..
+

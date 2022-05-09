@@ -1,0 +1,29 @@
+	% This program tests whether 13 may be represented
+	% as X^2+Y^2 for some decimal digits X and Y. Try this program 
+	% for other numbers or for some variable S to find all such numbers S.
+	% Use the option for finding all decisions.
+
+	% Goal
+{13} is sum of squares of M,N..	
+
+	% Program
+{A} is sum of squares  of X,Y :-	
+	{X} is digit,,
+	{Y} is digit,,
+	{A is X*X+Y*Y}..
+
+{1} is digit..
+{2} is digit..
+{3} is digit..
+{4} is digit..
+{5} is digit..
+{6} is digit..
+{7} is digit..
+{8} is digit..
+{9} is digit..
+{0} is digit..
+
+
+
+
+

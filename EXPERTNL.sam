@@ -1,0 +1,23 @@
+	% This is a short question-answering system with facts and inference rules
+	% represented as English phrases and dialog situations.
+	
+	% Possible goals (please leave uncommented exactly one of them).
+	% Variable R stands for the answer obtained via the inference:
+where is new york? in R..             	
+%who is julia? R..
+%who is joe? R..                        
+
+	% Inference rules:
+who is X? R :- X is R..
+where is X? in R :- X is situated in R..     		            
+
+          	% Factual knowledge:
+joe is son of maria and peter..
+julia is daughter of maria and peter..                        
+peter 2 is son of maria and peter 1..                         
+jack 2 is son of julia and jack 1..                           
+new york is situated in america..                             
+st.petersburg is situated in russia..                         
+a book is situated on a table..                               
+
+

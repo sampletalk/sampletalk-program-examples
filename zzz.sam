@@ -1,0 +1,94 @@
+%[morphology for [b a c k]] -> X..       
+%[morphology for [b a c k e d]] -> X..       
+%[morphology for [b a k e d]] -> X..       
+%[morphology for [q u e r i e d]] -> X..
+[morphology for [q u e r i e s]] -> X..
+
+
+[morphology for [W i e d]] -> past form of verb "W y" :- 
+	W y has canonic morphologic tag verb.. 
+[morphology for [W e d]] -> past form of verb "W e" :- 
+	W e has canonic morphologic tag verb..  
+[morphology for [W e d]] -> past form of verb "W" :-
+	 W  has canonic morphologic tag verb..
+[morphology for [W i e s]] -> 2-sg form of verb "W y" :- 
+	W y has canonic morphologic tag verb..
+[morphology for [W e s]] -> 2-sg form of verb "W e" :-
+	W e has canonic morphologic tag verb.. 
+[morphology for [W s]] -> 2-sg form of verb "W" :- 
+	W has canonic morphologic tag verb..
+[morphology for [W i e n]] -> past-p form of verb "W y" :- 
+	W y has canonic morphologic tag verb..  		
+[morphology for [W e n]] -> past-p form of verb "W e" :- 
+	W e has canonic morphologic tag verb..
+[morphology for [W e n]] -> past-p form of verb "W" :- 
+	W has canonic morphologic tag verb..	
+[morphology for [W y i n g]] -> ing-form of verb "W y" :- 
+	W y has canonic morphologic tag verb..  	
+[morphology for [W i n g]] -> ing-form of verb "W e" :- 
+	W e has canonic morphologic tag verb..  	
+[morphology for [W i n g]] -> ing-form of verb "W"  :- 
+	W has canonic morphologic tag verb..	
+[morphology for [W]] -> canonic verb form "W" 	:- 
+	W has canonic morphologic tag verb..	
+[morphology for [W i e s]] -> plural form of noun "W y" :- 
+	W y has canonic morphologic tag singular noun..  
+[morphology for [W e s]] -> plural form of noun "W e" :- 
+	W e has canonic morphologic tag singular noun..
+[morphology for [W s]] -> plural form of noun "W" :- 
+	W has canonic morphologic tag singular noun..		
+[morphology for [W]] -> canonic singular form of noun "W" :- 
+	W has canonic morphologic tag singular noun.. 	
+[morphology for [W]] -> adverb "W" :- 
+	W has canonic morphologic tag adverb..  
+[morphology for [W]] -> adjective "W" :- 
+	W has canonic morphologic tag adjective..  
+
+
+a b s o r b		has canonic morphologic tag 	verb..	
+a b s o r b e n c y 	has canonic morphologic tag 	singular noun..	
+a b s o r p t i o n		has canonic morphologic tag 	singular noun..
+a b s t a i n		has canonic morphologic tag 	verb..
+a b s t e m i o u s	has canonic morphologic tag 	adjective..
+a b s t e n t i o n		has canonic morphologic tag 	singular noun..
+a b s t i n e n c e		has canonic morphologic tag 	singular noun..
+a b s t i n e n t		has canonic morphologic tag 	adjective..
+a b s t r a c t		has canonic morphologic tag 	adjective..
+a b s t r a c t		has canonic morphologic tag 	singular noun..
+a b s t r a c t		has canonic morphologic tag 	verb..
+a b s t r u s e		has canonic morphologic tag 	adjective..
+a b s u r d		has canonic morphologic tag 	singular noun..
+a b s u r d i t y		has canonic morphologic tag 	singular noun..
+b a c k			has canonic morphologic tag 	singular noun..
+b a c k			has canonic morphologic tag 	adverb..
+b a c k			has canonic morphologic tag 	verb..
+b a c k a c h e		has canonic morphologic tag 	singular noun..
+b a c k b i t e		has canonic morphologic tag 	verb..
+b a c k b o a r d		has canonic morphologic tag 	singular noun..
+b a c k b o n e		has canonic morphologic tag 	singular noun..
+b a c k d r o p		has canonic morphologic tag 	singular noun..
+b a c k g r o u n d		has canonic morphologic tag 	singular noun..
+b a k e			has canonic morphologic tag 	singular noun..
+b a k e			has canonic morphologic tag 	verb..
+b a k e r			has canonic morphologic tag 	singular noun..
+b a k e r y		has canonic morphologic tag 	singular noun..
+c e r t i f i c a t e		has canonic morphologic tag 	singular noun..
+c e r t i f i c a t e		has canonic morphologic tag 	verb..
+c e r t i f i c a t i o n 	has canonic morphologic tag 	singular noun..
+c e r t i f y		has canonic morphologic tag 	verb..
+c e r t i t u d e		has canonic morphologic tag 	singular noun..
+c h a p t e r		has canonic morphologic tag 	singular noun..
+c h a s e 			has canonic morphologic tag 	singular noun..
+c h a s e			has canonic morphologic tag 	verb..
+e a s y			has canonic morphologic tag 	adjective..
+e a s y			has canonic morphologic tag 	adverb..
+e d i t			has canonic morphologic tag 	verb..
+e d i t i o n		has canonic morphologic tag 	singular noun..
+e d i t o r			has canonic morphologic tag 	singular noun..
+e d i t o r i a l		has canonic morphologic tag 	singular noun..	
+p r o v e			has canonic morphologic tag 	singular noun..
+p r o v e			has canonic morphologic tag 	verb..
+q u e r y			has canonic morphologic tag 	singular noun..
+q u e r y			has canonic morphologic tag 	verb..
+r e d			has canonic morphologic tag 	adjective..
+

@@ -1,0 +1,16 @@
+%XNYNZN:
+% Generation of words of the type x (n times) y (n times) z (n times)	,
+% which is impossible for CF grammars
+% (use the Find All Decisions and Stop Between Output Lines options).
+
+[X][Y][Z]..			% goal
+[x][y][z]..			% clauses
+[X x][Y y][Z z]:-[X][Y][Z]..
+
+
+
+
+
+
+
+

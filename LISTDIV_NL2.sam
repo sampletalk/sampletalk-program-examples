@@ -1,0 +1,8 @@
+number list [{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}] consists of even elemens [E] and odd elements [O]..
+
+number list [{A},{B}] consists of even elemens [{B}] and odd elements [{A}].. 
+number list [{A},{B},{C}] consists of even elemens [{B}] and odd elements [{A},{C}].. 
+number list [{A},{B},{C},{D}] consists of even elemens [{B},{D}] and odd elements [{A},{C}].. 
+number list [{A},{B},{C},X] consists of even elemens [{B},E] and odd elements [{A},{C},O] :- 
+	number list [X] consists of even elemens [O] and odd elements [E]..	
+

@@ -1,0 +1,52 @@
+	% Translation of English into SQL (see comments below).
+
+	% Leave uncommented exactly one of the goals.
+	% Possible goals (NL phrases with shallow parsing structure):
+%sql[print me n[phone numbers]]=W..
+%sql[please s[print me n[phone numbers]]]=W..
+%sql[print me n[phone numbers] of n[the customers]]=W..
+%sql[please s[print me n[phone numbers] of n[the customers]]]=W..
+sql[please s[print me n[phone numbers] of n[customers] c[who are mentioned in] n[document] about n[motoroller]]]=W..
+
+	% Rules:
+sql[please s[A]]=W :- sql[A]=W..
+sql[could you s[A]]=W :- sql[A]=W..
+sql[print me n[A]]=create view (X) as select A from table1 :- n[A]=X..
+sql[print me n[N] of n[C]]=create view (K, M) as select table.K, table.M from table :- n[N]=M,,n[C]=K..
+sql[print me n[T] of n[C] c[_] n[D] about n[M]]=
+        create view  (C name, D number, T)
+        as select    ( C.code, D.D number, C.T )
+        from         ( C, D )
+        where        C.code = D.C code, D.item = M..
+
+	% Dictionary:
+n[phone numbers]=telephone.. 	
+n[the customers]=customer.. 	
+n[the documents]=document.. 	
+n[motorollers]=motoroller..
+
+
+	% This program translates a small subset of English into 
+	% SQL queries. We obtained (manually) all the translation rules by 
+	%  generalization of 1 (parsed) translation example:
+
+	%    s[please s[print me n[telephone] of n[customers] c[who are mentioned in] 
+	%    n[document] about n[motoroller]]]= 
+	%    create view (customersname, documentnumber, telephone) 
+	%    as select ( customers.code, document.documentnu) 
+	%    where 
+	%    customers.code = document.customerscode, document.item = motoroller
+
+	% The subset of English may be easily expanded in the same way. Here we assume
+	% that some "shallow" parsing is done before the translation (see program PARSING1.SAM).
+	% The program shows the possibility to generate applications immediately 
+	% from data examples rather than represents a completed product.
+	% Possible developments: 
+	%   1) Generalization of prepositions "of", "from" etc. in the same
+	% way the phrase "who are mentioned in" was generalized;
+	%   2) Expanding of the synonim dictionary (the customers=customer=client, ...)
+	%   3) Accumulation of possible copulae and synonims
+	%   4) Tuning the translator by a special SQL database for special purposes.
+               
+
+

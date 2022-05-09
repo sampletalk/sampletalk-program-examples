@@ -1,0 +1,21 @@
+	% Dividing a list into two parts: for even and odd elements.
+	% These clauses are used in program SORTMERGE.SAM (merge sort).
+	% Variables A and B stand for the resulted lists.
+	% Characters + and = define syntax for usage of these clauses in the form <list> = <list> + <list>
+
+ 	% Goal:
+{12}{1000}{6}{500}{-5}{0}{7}{11} = [A]+[B]..      
+
+	% Program:
+{X}{Y}A = [{X}B]+[{Y}C] :- A = [B]+[C]..	
+{X}{Y} = [{X}]+[{Y}]..
+{X} = [{X}]+[ ]..
+
+
+
+ 
+
+
+
+
+

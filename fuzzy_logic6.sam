@@ -1,0 +1,311 @@
+% 	Possible goals:
+%	translation of [defect is darker than material] is X..
+%	translation of [defect is somewhat brighter than material] is X..
+%	translation of [center is brighter than material] is X..
+%	translation of [boundary is somewhat brighter than material] is X..	% not?!
+%	translation of [center is more-or-less brighter than material] is X..
+%	translation of [defect is black] is X..
+%	translation of [defect is somewhat reddish] is X..
+%	translation of [defect is very bright] is X..
+%	translation of [defect is darker than material and center is somewhat brighter than material] is X..
+%	translation of [defect is somewhat reddish and center is somewhat brighter than material] is X..
+%	translation of [defect is somewhat reddish and center is somewhat brighter than material and boundary is somewhat darker than material] is X..
+	translation of [defect is very scattered and center is blurred and boundary is darker than material] is X..
+
+objects: 			[] [defect][material][area][surrounding][underside][edge][pattern][bridge][shortage][cluster][body]
+					[center][boundary][fm-material][open][m1-line][scratch][residual-metal][stain][depression][area] []..
+object comparisons:	[] [is darker than][is brighter than][is lighter than] []..
+object features: 		[] [bright][dark][saturated][solid][black][gray][white][yellow][green][turquoise][blue][purple][red][reddish]
+					[circular][elongated][oblong][small][large][rough][continuous][scattered][blurred]
+					[discontinuous][shorted][round][stright][bended][visible][scattered] []..
+object relations:		[] [covers][touches][intersects with][is near][is over][is under][lies along][has] []..
+fuzzy feature qualifiers:	[] [not][very][somewhat][more-or-less] []..
+object quantifiers:		[] [few][many][more-than-3] []..
+object-object specifiers:	[] [of][in] []..					% e.g. center of stain
+object-feature specifiers:	[] [which is] []..					% e.g. shortage which is bright
+object-relation specifiers:	[] [which] []..					% e.g. bridge which touches boundary
+ortogonalities:		[] [dark-bright][black-white][small-large][elongated-circular][solid-scattered][darker-brighter][few-many][not-very]
+					[over-under][stright-bended][]..
+colors: 			[] [black][gray][white][yellow][green][turquoise][blue][purple][red][reddish] []..
+
+translation of [A and B] is X and Y :- translation of [A] is X,,	translation of [B] is Y..
+translation of [A is F B than C] is F(Y) :- 
+	objects: _[A]_ ,, fuzzy feature qualifiers: _[F]_ ,, object comparisons: _[is B than]_ ,, 	objects: _[C]_ ,, translation of [A is B than C] is Y..
+translation of [X is F P] is F(Y) :- objects: _[X]_ ,, fuzzy feature qualifiers: _[F]_ ,, object features: _[P]_ ,,translation of [X is P] is Y..
+translation of [defect is P] is P :- object features: _[P]_..
+translation of [A] is X and Y :- corollary of [A] is X ,, corollary of [A] is Y ,, ~~[X is the same as Y]  ..
+translation of [A] is X :- corollary of [A] is X ..
+translation of [A] 				is 	[unknown object]..			% handling unrecignizable words and phrases
+
+corollary of [defect is brighter than material] 	is 	brighter-than-material..
+corollary of [defect is darker than material] 	is 	darker-than-material..
+corollary of [O is brighter than material]		is	has-areas-brighter-than-material 	:- objects: _[O]_ ,, ~~[O is the same as defect] ..
+corollary of [O is darker than material]		is	has-areas-darker-than-material 	:- objects: _[O]_ ,, ~~[O is the same as defect] ..
+corollary of [O is blurred]			is	blur-factor 			:- objects: _[O]_ ,, ~~[O is the same as defect] ..
+[X is the same as X] ..
+
+
+
+
+brighter-than-material			if [] [bright][shine][brighter] []..	
+equal-to-material..
+darker-than-material			if [] [dark] []..
+has-areas-brighter-than-material		if [] [brighter] []..
+has-areas-darker-than-material		if [] [darker] []..
+has-areas-equal-to-material..
+darker-than-next-and-brighter-than-material	if [] [darker than next and brighter than material] []..
+black					if [] [black] []..
+black-1..
+black-2..
+black-3..
+gray					if [] [gray] []..
+gray-1
+gray-2
+gray-3
+white					if [] [white] []..
+white-1
+white-2
+white-3
+dominant-intensity-value(N)
+saturation					if [] [saturated][saturation] []..
+darker-than-surrounding			if [] [dark spot] []..
+lighter-than-surrounding			if [] [light spot] []..
+darker-than-underside			if [] [dark covering] []..
+lighter-than-underside			if [] [light covering] []..
+red					if [] [red] []..
+yellow					if [] [yellow][yellowish] []..
+green					if [] [green] []..
+turquoise					if [] [turquoise] []..
+blue					if [] [blue] []..
+purple					if [] [purple] []..
+has-color-area				if [] [colored][red][reeddish][yellow][yellowish][green][blue][purple][turquoise] []..
+saturate-exist				if [] [saturated][saturate] []..
+dominant-color(C)				if [] [very C][fairly C] []	:- colors: _[C]_..
+white-color-factor(N)..
+color-factor(N)..
+on-memory-pattern..
+on-edge					if [] [on edge][touches edge][covers edge] []..
+on-pattern				if [] [on pattern][touches pattern][covers pattern] []..
+on-material				if [] [on material][touches material][covers material] []..
+cover-material				if [] [covers material] []..
+reddish					if [] [reddish] []..
+color-exists(C)				if [] [C] []			:- colors: _[C]_..
+mostly-on-pattern				if [] [mostly on pattern] []..
+cover-pattern				if [] [cover pattern] []..
+bridge-pattern				if [] [bridge] []..
+saturate-on-pattern				if [] [saturated][saturation] []..
+fov-pattern-free..
+pattern-on-pattern				if [] [pattern on pattern] []..
+number-all-clusters(N)
+number-clusters-in-ellipse(N)
+solid					if [] [solid] []..
+one-distinctive-body			if [] [one distinctive body] []..
+more-than-one-distinctive-body		if [] [more than one distinctive body][several distinctive bodies] []..
+dispersed-little-bodies			if [] [dispersed little bodies][small particles] [].. 
+above-layer(N)..
+below-layer(N)..
+blur-factor					if [] [blur][blurred][smooth] []..
+circular					if [] [round][circular] []..
+elongated				if [] [elongated][long] []..
+oblong					if [] [oblong][egg] []..
+scattered					if [] [scattered][small particles] [].. 
+dispersed				if [] [dispersed][small particles] [].. 
+scratch					if [] [scratch] [].. 
+extended-damage				if [] [extended][severe][very][dangerous] [].. 
+number-of-particles(N)..
+extra-pattern				if [] [extra pattern][another pattern][additional patetrn] [].. 
+untouched-pattern				if [] [untouched pattern][patetrn is untouched][pattern isn't damaged][patetrn is safe] [].. 
+mean-particles-area(N)..
+deviation-particles-area(N)..
+donut					if [] [donut][tor] [].. 
+mean-contrast(N)..
+contrast-variation(N)..
+maximum-dimension(N)..
+minimum-dimension(N)..
+total-size(N)..
+big-object-size(N)..
+drt-size-x(N)..
+drt-size-y(N)..
+dark-center					if [] [center is dark] [].. 
+transparent-defect					if [] [transparent] [].. 
+smooth-center					if [] [center is smooth] [].. 
+bright-boundary					if [] [bright boundary][boundary is bright] [].. 
+dark-boundary					if [] [dark boundary][boundary is dark] [].. 
+out-of-focus					if [] [out of focus][bad focus] [].. 
+uniform-grey-level-center..
+center-darker-than-edge				if [] [center is darker than edge] [].. 
+dark-edge					if [] [dark edge][edge is dark] [].. 
+not-visual						if [] [not visual][invisible] [].. 
+system-problems..
+large-defect					if [] [large] [].. 
+orbot-unclassified					if [] [orbot-unclassified] [].. 
+orbot-pattern					if [] [orbot-pattern] [].. 
+orbot-big-particle					if [] [orbot-big-particle] [].. 
+orbot-circle-poly-res				if [] [orbot-circle-poly-res] [].. 
+orbot-scratch					if [] [orbot-scratch] [].. 
+orbot-micro-scratch					if [] [orbot-micro-scratch] [].. 
+orbot-pattern-scratch				if [] [orbot-pattern-scratch] [].. 
+orbot-small-unknown				if [] [orbot-small-unknown] [].. 
+orbot-big-unknown					if [] [orbot-big-unknown] [].. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%	brighter-than-material				is 	1-arity predicate..
+%	equal-to-material 					is 	1-arity predicate..
+%	darker-than-material 				is 	1-arity predicate.. % dark
+%	has-areas-brighter-than-material 			is 	1-arity predicate.. % 
+%	has-areas-darker-than-material 			is 	1-arity predicate..
+%	has-areas-equal-to-material				is 	1-arity predicate..
+%	darker-than-next-and-brighter-than-material 		is 	1-arity predicate..
+%	black 						is 	1-arity predicate..
+%	black-1 						is 	1-arity predicate..
+%	black-2 						is 	1-arity predicate..
+%	black-3 						is 	1-arity predicate..
+%	gray 						is 	1-arity predicate..
+%	gray-1 						is 	1-arity predicate..
+%	gray-2 						is 	1-arity predicate..
+%	gray-3  						is 	1-arity predicate..
+%	white 						is 	1-arity predicate..
+%	white-1 						is 	1-arity predicate..
+%	white-2 						is 	1-arity predicate..
+%	white-3 						is 	1-arity predicate..
+%	dominant-intensity-value(N) 				is 	2-arity predicate..
+%	saturation 					is 	1-arity predicate.. %saturated
+%	darker-than-surrounding 				is 	1-arity predicate.. %dark spot
+%	lighter-than-surrounding 				is 	1-arity predicate.. %light spot
+%	darker-than-underside 				is 	1-arity predicate.. %dark cover
+%	lighter-than-underside 				is 	1-arity predicate.. %light cover
+%	red 						is 	1-arity predicate..
+%	yellow 						is 	1-arity predicate..
+%	green 						is 	1-arity predicate..
+%	turquoise 						is 	1-arity predicate..
+%	blue 						is 	1-arity predicate..
+%	purple 						is 	1-arity predicate..
+%	has-color-area 					is 	1-arity predicate.. %
+%	saturate-exist 					is 	1-arity predicate..
+%	dominant-color(C) 					is 	2-arity predicate..
+%	white-color-factor(N)					is 	2-arity predicate..
+%	color-factor(N)	 				is 	2-arity predicate..
+%	on-memory-pattern 					is 	1-arity predicate..
+%	on-edge 						is 	1-arity predicate.. %
+%	on-pattern 					is 	1-arity predicate..
+%	on-material 					is 	1-arity predicate..
+%	cover-material 					is 	1-arity predicate..
+%	reddish 						is 	1-arity predicate..
+%	color-exists(C) 					is 	2-arity predicate..
+%	mostly-on-pattern 					is 	1-arity predicate..
+%	cover-pattern 					is 	1-arity predicate..
+%	bridge-pattern 					is 	1-arity predicate..
+%	saturate-on-pattern 					is 	1-arity predicate..
+%	fov-pattern-free 					is 	1-arity predicate..
+%	pattern-on-pattern 					is 	1-arity predicate..
+%	number-all-clusters(N) 				is 	2-arity predicate..
+%	number-clusters-in-ellipse(N) 				is 	2-arity predicate..
+%	solid 						is 	1-arity predicate..
+%	one-distinctive-body 				is 	1-arity predicate..
+%	more-than-one-distinctive-body 			is 	1-arity predicate.. % several
+%	dispersed-little-bodies	 			is 	1-arity predicate.. % small particles
+%	above-layer(N) 					is 	2-arity predicate..
+%	below-layer(N) 					is 	2-arity predicate..
+%	blur-factor 					is 	1-arity predicate.. %smooth
+%	circular 						is 	1-arity predicate.. %round
+%	elongated 					is 	1-arity predicate.. %
+%	oblong 						is 	1-arity predicate.. % egg shaple
+%	scattered 						is 	1-arity predicate.. % 
+%	dispersed 					is 	1-arity predicate.. %sparse
+%	scratch 						is 	1-arity predicate.. %narrow elongated
+%	extended-damage 					is 	1-arity predicate.. % very distorted patterns
+%	number-of-particles(N)				is 	2-arity predicate..
+%	extra-pattern 					is 	1-arity predicate..
+%	untouched-pattern 					is 	1-arity predicate.. % does not affect shape of the pattern
+%	mean-particles-area(N) 				is 	2-arity predicate..
+%	deviation-particles-area(N) 				is 	2-arity predicate..
+%	donut 						is 	1-arity predicate..
+%	mean-contrast(N) 					is 	2-arity predicate..
+%	contrast-variation(N) 				is 	2-arity predicate..
+%	maximum-dimension(N) 				is 	2-arity predicate..
+%	minimum-dimension(N) 				is 	2-arity predicate..
+%	total-size(N)					is 	2-arity predicate..
+%	big-object-size(N) 					is 	2-arity predicate..
+%	drt-size-x(N)					is 	2-arity predicate..
+%	drt-size-y(N)					is 	2-arity predicate..
+%	dark-center 					is 	1-arity predicate..
+%	transparent-defect 					is 	1-arity predicate..
+%	smooth-center 					is 	1-arity predicate..
+%	bright-boundary 					is 	1-arity predicate..
+%	dark-boundary 					is 	1-arity predicate..
+%	out-of-focus 					is 	1-arity predicate..
+%	uniform-grey-level-center 				is 	1-arity predicate..
+%	center-darker-than-edge 				is 	1-arity predicate..
+%	dark-edge 					is 	1-arity predicate..
+%	not-visual 					is 	1-arity predicate..
+%	system-problems 					is 	1-arity predicate..
+%	large-defect 					is 	1-arity predicate..
+%	orbot-unclassified	 				is 	1-arity predicate..
+%	orbot-pattern	 				is 	1-arity predicate..
+%	orbot-big-particle	 				is 	1-arity predicate..
+%	orbot-circle-poly-res	 			is 	1-arity predicate..
+%	orbot-scratch	 				is 	1-arity predicate..
+%	orbot-micro-scratch	 				is 	1-arity predicate..
+%	orbot-pattern-scratch	 			is 	1-arity predicate..
+%	orbot-small-unknown	 			is 	1-arity predicate..
+%	orbot-big-unknown	 				is 	1-arity predicate..
+
+
+
+
+
+
+
+
+
+
+%	CLASSES:
+%	defect class is large-open		:- more than 3 m1-lines are discontinued..
+%	defect class is micromasking		:- less than 4 m1-lines are shorted..
+ %	defect class is large-micromasking	:- more than 3 m1-lines are shorted..
+%	defect class is microscratch		:- defect is elongated, and defect is small, and defect touches m1-line..
+%	defect class is needs-sem		:- 
+%	defect class is not-visible		:- 
+%	defect class is open-contact		:- 
+%	defect class is open			:- m1-lines are discontinued, and there is no scratch..
+%	defect class is aluminium-particles	:- defect is round, and defect is white or orange..
+%	defect class is bright-spot		:- defect is bright..
+%	defect class is corrosion		:- 
+%	defect class is etch-scratch		:-
+%	defect class is extension		:-
+%	defect class is embedded-fm		:-
+%	defect class is large-embedded-fm	:- 
+%	defect class is prior-level-scratch	:- m1-lines are over defect and defect is scratch..
+%	defect class is prior-level		:- m1-lines are over defect..
+%	defect class is polish-residuals	:-
+%	defect class is printed-scratch		:- m1-lines are shorted or m1-lines are bended..
+%	defect class is residual-metal		:- m1-lines are good, and area is shiny, and number-of m1-lines is less than 4..
+%	defect class is residual-tungsten	:- m1-lines are over defect, and defect is residual metal..
+%	defect class is sidewall-attack		:- m1-lines have rough edges..
+%	defect class is surface-fm		:- 
+%	defect class is small-unknown		:-
+%	defect class is other			:- defect is visible..
+
+

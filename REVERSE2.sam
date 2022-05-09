@@ -1,0 +1,21 @@
+	% Word inversion. This program is similar to program REVERSE1.SAM, but has more short syntax.
+	% Probably this is the shortest possible representation of the word inversion algorithm
+	% for universal programming languages.
+
+	% Goal:
+[a b c d e f g h 0 1 2 3 4 5 6 7 8 9] -> [X]..
+
+	% Program:
+[A M] -> [N A] :- [M] -> [N]..
+[A] -> [A]..
+
+
+
+
+
+
+
+
+
+
+

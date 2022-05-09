@@ -1,0 +1,12 @@
+( for-all x 0 ) [a ( x 0 , y )] or ( for-all x 0 ) [b ( x 0 , t )]  --> W..	
+
+( Q x X ) [F] or ( Q x X ) [H] --> ( Q x X ) ( Q x Z ) ( [F] or [G] ) :- 
+	[x X is variable] ,, [x Z is variable] ,, ~~[F contains x Z] ,, [ x Z / x X ] [ H ] = [ G ] .. 
+
+[x 0 is variable] ..	
+[X 1 0 is variable] :- [X 0 is variable] ..
+[_ X _ contains X] ..
+[ Y / X ] [ A X M ] = [ A Y N ] :- [ Y / X ] [ M ] = [ N ] ..	
+[ Y / X ] [ A ] = [ A ] :- ~~[A contains X]..
+
+

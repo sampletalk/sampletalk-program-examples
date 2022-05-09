@@ -1,0 +1,9 @@
+	% Test a word whether it is a palindrom and find its 1-st half
+
+	% Goal (variable W stands for the half of the palindrom):
+[a b c d d c b a] is palindrom made from W..
+
+	% Program
+[A X A] is palindrom made from A W :- [X] is palindrom made from W..
+[A A] is palindrom made from A..
+

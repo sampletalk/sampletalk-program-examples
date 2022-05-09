@@ -1,0 +1,29 @@
+	% Logic Formula Transformation (shifting quantifiers). The main clause of this program almost 
+	% literally quotes well known formal rule from a student textbook for mathematical logic, along 
+	% with informal constraints for application of this rule. See also demo programs LOGICTR3.SAM -
+	% modification of this program, LOGICTR2.SAM - running this program for inverse formula 
+	% transformation, and REPLACE.SAM - for explanation of the last clauses that represent classic 
+	% notation for replacing variables in logic formulae. The program is built immediately from these
+	% formal and semiformal notations.
+
+	% Goal (variable W stands for the resulting formula):
+( for-all x 0 ) [a ( x 0 , y )] or ( for-all x 0 ) [b ( x 0 , t )]  --> W..	
+
+	% Program. Main clause
+	% (~~ means negation - read it as "not"; this is SAMPLE internal construction.
+	% The last sample is common notation for replacing variables in logic formulae):
+( Q X ) [F] or ( Q X ) [H] --> ( Q X ) ( Q Z ) ( [F] or [G] ) :- 
+	[X is variable] ,, [Z is variable] ,, ~~[F contains Z] ,, [ Z / X ] [ H ] = [ G ] .. 
+
+	% Recursive definition of logic variables:
+[x 0 is variable] ..	
+[X 1 0 is variable] :- [X 0 is variable] ..
+
+	% Explanation of what is "contains" (sample "_" matches anything):
+[_ X _ contains X] ..
+
+	% Implementation of replacing variables in logic formulae:
+[ Y / X ] [ A X M ] = [ A Y N ] :- [ Y / X ] [ M ] = [ N ] ..	
+[ Y / X ] [ A ] = [ A ] :- ~~[A contains X]..
+
+
